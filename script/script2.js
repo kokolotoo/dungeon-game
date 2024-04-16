@@ -173,7 +173,7 @@ function spin() {
 
         // Създаване на масив с аргументи
         let argumentsArray = ["first", "second", "third", "forth"];
-        // Извикване на функцията result() три пъти с различни аргументи и интервал от 1 секунда
+        // Извикване на функцията result() четири пъти с различни аргументи и интервал от 0.6 секунди
         let interval = setInterval(() => {
             // Извикване на result() с текущия аргумент от масива
             result(argumentsArray.shift());
@@ -182,36 +182,34 @@ function spin() {
                 clearInterval(interval);
             }
         }, 600);
-        //проверка на резултата със закъснение от 3,4 сек
+        //проверка на резултата със закъснение от 2.5 сек
         setTimeout(function () {
 
             if (firstResult === "cheri" && secondResult === "cheri" && thirdResult === "cheri" && forthResult === "cheri") {
                 alert(`Череши ви носи печалба от ${selectedGold * 50}`);
                 gold += (selectedGold * 50);
-                updateResurs();
+            
             } else if (firstResult === "praskova" && secondResult === "praskova" && thirdResult === "praskova" && forthResult === "praskova") {
                 alert(`Праскови ви носи печалба от ${selectedGold * 100}`);
                 gold += (selectedGold * 100);
-                updateResurs();
+                
             } else if (firstResult === "qgoda" && secondResult === "qgoda" && thirdResult === "qgoda" && forthResult === "qgoda") {
                 alert(`Ягоди ви носи печалба от ${selectedGold * 150}`);
                 gold += (selectedGold * 150);
-                updateResurs();
+                
             } else if (firstResult === "banana" && secondResult === "banana" && thirdResult === "banana" && forthResult === "banana") {
                 alert(`Банани ви носи печалба от ${selectedGold * 200}`);
                 gold += (selectedGold * 200);
-                updateResurs();
-            }
-
-            if(firstResult === secondResult && thirdResult === forthResult){
+                
+            } else if (firstResult === secondResult && thirdResult === forthResult) {
                 alert(`Два чифта ви носи печалба от ${selectedGold * 5}`);
                 gold += (selectedGold * 5);
-                updateResurs();
+                
             }
-            
+            updateResurs();
         }, 2500);
     }
-    
+
 }
 
 
