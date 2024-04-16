@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First game</title>
+    <link rel="stylesheet" href="styles/style1.css">
+
+</head>
+
+<body>
+
+    <div class="clock">
+        <button onclick="saveData()" class="savebutton" title="Запазва прогреса на играча">Save Game</button>
+        <button onclick="loadData()" class="loadbutton" title="Зарежда последния направен запис.">Load Game</button>
+        <button onclick="resset()" class="ressetbutton"
+            title="Ресетва играта и ако има запис го изтрива.">Resset</button>
+        <span class="hour">00:00</span>
+    </div>
+    <div class="nameGames">
+        <button class="button4" id="button4">Kill the dragon</button>
+    </div>
+
+
+    <header>
+        <h3 class="text-resurses"> Ресурси</h3>
+
+        <div class="resurses">
+            <span>Победи : <u class="victory"></u></span>
+            <span>Злато : <u class="gold"></u></span>
+            <span>Живот : <u class="live" id="live"></u></span>
+            <br><br> <span>Оръжие : <u class="weapon1"></u> , <u class="weapon2"></u></span>
+            <span>Диаманти : <u class="diamant" id="diamand"></u></span>
+        </div>
+
+    </header>
+
+    <div class="buttons">
+        <button class="button1" id="button1" title="Работно време от 8:00h до 20:00 h">Отиди в магазина</button>
+        <button class="button2" id="button2" title="Работно време от 8h до 20h">Копай в мината за злато</button>
+        <button class="button3" id="button3">Бий се със звяр</button>
+        <button class="bardak">Странноприемница</button>
+
+    </div>
+
+    <div class="uvod">
+        <p class="uvod-text1">Във времена на зверове , дракони , разбойници и всякакви твари, </p>
+        <p class="uvod-text2">смел войн се опитва да спаси селото си ,терорирзирано все по-често от местен дракон</p>
+        <img src="pics/voin.jfif" alt="pic" class="uvod-pic" width="10%">
+    </div>
+
+    <div class="fight">
+        <h2>Умения на звяра:</h2>
+        <p>Живот: <span class="animal"></span></p>
+        <p>Оръжие: <span class="animal-wepon"></span></p>
+        <button class="combat" id="combatButton">Начало</button>
+        <button class="run" onclick="escape()">Избягай</button>
+        <hr>
+        <p class="result"></p>
+        <hr>
+        <p>Ако избягаш , губиш половината си злато при бягството и едно оръжие !</p>
+        <p>Ако нямаш никакво оръжие и избягаш , ще изгубиш всичкото си злато</p>
+
+    </div>
+
+    <div class="mine">
+        <button class="deep-button" onclick="deep()">Копай</button>
+        <button class="auto-deep" id="autoButton">Автоматично копаене</button>
+        <p>Копаене коства 10 живот</p>
+        <p>Възможна печалба от 0 - 100 злато</p>
+        <p class="dril-result"></p>
+
+    </div>
+
+    <div class="magazin">
+        <button class="by-wepon" id="by-wepon">Купи оръжие</button>
+        <select class="wepon" id="myWeapons">
+            <option value="sword">Меч</option>
+            <option value="shield">Щит</option>
+            <option value="armor">Броня</option>
+        </select>
+        <button class="by-live">Купи живот</button>
+        <p>Меч : цена - 400 злато</p>
+        <p>Щит : цена - 500 злато</p>
+        <p>Броня : цена -880 злато</p>
+        <p> 20 живот : цена - 40 злато</p>
+
+    </div>
+
+    <div class="kill-dragon">
+        <h2>Умения на Дракона:</h2>
+        <p>Живот: <span class="dragonLive">400</span></p>
+        <p>Оръжие: <span class="animal-wepon">Броня</span></p>
+        <button class="combat" onclick="combatDragon()">Начало</button>
+        <button class="run" id="runButton" onclick="escape()">Избягай</button>
+        <p>Ако избягаш , губиш половината си злато при бягството и едно оръжие !</p>
+        <p>Ако нямаш никакво оръжие и избягаш , ще изгубиш всичкото си злато</p>
+        <p class="result"></p>
+    </div>
+
+    <div class="win-pic">
+        <img src="pics/youwin.jpg" alt="win" width="20%">
+    </div>
+
+    <div id="container">
+        <p class="izbor-zalog">Избери залог в злато: <input type="number" class="zalog" placeholder="избери" id="zalog">
+        </p>
+        <button class="confirm-button" id="confirm-button">Потвърди залог</button>
+
+        <div class="container">
+
+            <div class="first">
+                <img src="pics-game/karti.jfif" alt="" width="100%" class="karti1">
+                <img src="pics-game/cherry.jfif" alt="cherry" class="chery-pic1" width="100%">
+                <img src="pics-game/praskova1.jfif" alt="peech" class="praskova-pic1" width="100%">
+                <img src="pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic1" width="104%">
+                <img src="pics-game/banana.png" alt="qgoda" class="banana-pic1" width="92%">
+            </div>
+
+            <div class="second">
+                <img src="pics-game/karti.jfif" alt="" width="100%" class="karti2">
+                <img src="pics-game/cherry.jfif" alt="cherry" class="chery-pic2" width="100%">
+                <img src="pics-game/praskova1.jfif" alt="peech" class="praskova-pic2" width="100%">
+                <img src="pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic2" width="104%">
+                <img src="pics-game/banana.png" alt="qgoda" class="banana-pic2" width="92%">
+            </div>
+
+            <div class="third">
+                <img src="pics-game/karti.jfif" alt="" width="100%" class="karti3">
+                <img src="pics-game/cherry.jfif" alt="cherry" class="chery-pic3" width="100%">
+                <img src="pics-game/praskova1.jfif" alt="peech" class="praskova-pic3" width="100%">
+                <img src="pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic3" width="104%">
+                <img src="pics-game/banana.png" alt="qgoda" class="banana-pic3" width="92%">
+            </div>
+
+            <div class="forth">
+                <img src="pics-game/karti.jfif" alt="" width="100%" class="karti4">
+                <img src="pics-game/cherry.jfif" alt="cherry" class="chery-pic4" width="100%">
+                <img src="pics-game/praskova1.jfif" alt="peech" class="praskova-pic4" width="100%">
+                <img src="pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic4" width="104%">
+                <img src="pics-game/banana.png" alt="qgoda" class="banana-pic4" width="92%">
+            </div>
+
+            <div class="forth">
+                <button id="spin-button" onclick="spin()" class="spinButton">Spin</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="script/script1.js"></script>
+    <script src="script/script2.js"></script>
+
+</body>
+
+</html>

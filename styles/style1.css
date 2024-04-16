@@ -1,0 +1,356 @@
+body {
+    background-image: url('../pics/backgraundimg.jpg');
+
+    background-repeat: no-repeat;
+    color: aliceblue;
+
+}
+
+.clock {
+
+    color: rgba(216, 236, 196, 0.508);
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+h1 {
+    font-style: italic;
+    font-size: 55px;
+    margin-top: 10%;
+    animation: rotateText 9s linear infinite;
+    color: rgba(241, 50, 50, 0.792);
+
+}
+
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nameGames {
+    margin-bottom: 1%;
+    margin-top: 2%;
+    text-align: center;
+
+}
+
+.button4 {
+    font-size: 45px;
+    color: rgb(190, 177, 192);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: inset 1px 1px 15px 1px white;
+    height: 50%;
+    width: 60%;
+    font-style: italic;
+    cursor: pointer;
+    border-radius: 40%;
+}
+
+.text-resurses {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 25px;
+}
+
+.resurses {
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+span {
+    font-style: italic;
+    font-size: larger;
+    margin-left: 5%;
+}
+
+ol {
+    font-style: italic;
+    font-size: larger;
+    margin-left: 5%;
+}
+
+u {
+    font-size: larger;
+    color: bisque;
+    padding-left: 10px;
+
+}
+
+.savebutton,
+.loadbutton,
+.ressetbutton {
+    margin-right: 10px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 2%;
+    padding-right: 5%;
+}
+
+.button1,
+.button2,
+.button3,
+.bardak {
+    margin-left: 4%;
+    font-size: large;
+    font-style: italic;
+    background-color: rgba(127, 255, 212, 0.619);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 1px 1px 15px 1px rgba(255, 255, 255, 0.779);
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .button1,
+    .button2,
+    .button3,
+    .nameGames,
+    .button4,
+    body,
+    .fight,
+    span,
+    p,
+    .combat,
+    .run,
+    ol,
+    ul,
+    .uvod,
+    .resurses,
+    .buttons,
+    .mine,
+    .magazin,
+    .clock,
+    .hour,
+    .confirm-button {
+        margin-left: 0;
+        /* Промяна на отстъпа */
+        font-size: medium;
+        /* Промяна на размера на шрифта */
+        padding-left: 5px;
+        /* Промяна на вътрешните отстъпи */
+        padding-right: 5px;
+        padding: 1px;
+    }
+}
+
+button:hover {
+    background-color: rgba(0, 255, 255, 0.396);
+}
+
+
+.fight {
+    display: none;
+    text-align: center;
+    background-color: rgba(137, 43, 226, 0.325);
+}
+
+p {
+    font-style: italic;
+    font-size: large;
+    margin-top: 20px;
+}
+
+.combat,
+.run {
+    background-color: greenyellow;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.mine {
+    background-color: rgba(0, 255, 255, 0.237);
+    display: none;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.magazin {
+    background-color: rgba(182, 133, 103, 0.316);
+    display: none;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.by-wepon,
+.by-live {
+    margin-top: 10px;
+    background-color: blue;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.wepon {
+    background-color: rgba(170, 244, 191, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 10%;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.kill-dragon {
+    display: none;
+    text-align: center;
+    background-color: rgba(84, 100, 76, 0.54);
+}
+
+.deep-button,
+.auto-deep {
+    background-color: rgba(1, 41, 12, 0.5);
+    color: beige;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.result {
+    font-size: 30px;
+    color: aqua;
+}
+
+.win-pic {
+    display: inline-block;
+    text-align: center;
+    margin-top: 5%;
+    display: none;
+}
+
+
+
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.uvod {
+    text-align: center;
+    margin-top: 4%;
+    display: block;
+}
+
+.uvod-text1,
+.uvod-text2 {
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: rgb(232, 255, 127);
+}
+
+.ressetbutton,
+.savebutton,
+.loadbutton {
+    background-color: transparent;
+    color: rgb(188, 146, 230);
+    box-shadow: inset 1px 1px 7px 1px white;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.first,
+.second,
+.third,
+.forth {
+    width: 10%;
+    height: 10%;
+}
+
+#container {
+    visibility: hidden;
+}
+
+#spin-button {
+    cursor: pointer;
+    font-size: large;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-style: italic;
+    background-color: brown;
+    color: blanchedalmond;
+}
+
+.karti1,
+.karti2,
+.karti3,
+.karti4,
+.chery-pic1,
+.chery-pic2,
+.chery-pic3,
+.chery-pic4,
+.praskova-pic1,
+.praskova-pic2,
+.praskova-pic3,
+.praskova-pic4,
+.qgoda-pic1,
+.qgoda-pic2,
+.qgoda-pic3,
+.qgoda-pic4,
+.banana-pic1,
+.banana-pic2,
+.banana-pic3,
+.banana-pic4 {
+    display: none;
+    border-radius: 15%;
+    opacity: 70%;
+
+}
+
+.izbor-zalog {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+}
+
+.zalog {
+    margin-top: 1%;
+    background-color: transparent;
+    color: aqua;
+    width: 13%;
+    text-align: center;
+
+}
+
+.confirm-button {
+    background-color: rgba(23, 23, 13, 0.699);
+    color: rgb(197, 209, 167);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+}
