@@ -15,7 +15,7 @@ function loadData() {
         beastLive = savedData.beastLive;
         counter = savedData.counter;
         dragonLive = savedData.dragonLive;
-        diamonds = savedData.diamonds
+        diamonds = savedData.diamonds;
     }
     updateResurs();
 }
