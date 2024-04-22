@@ -11,18 +11,8 @@ let dragonLive = 400;
 var diamonds = 0;
 let counterFight = 0;
 
-function loadDataFromStrangers() {
-    if (localStorage.getItem('dataFromStrangers')) {
-        // Ако има, възстановяваме променливите от Local Storage
-        let savedData = JSON.parse(localStorage.getItem('dataFromStrangers'));
-        gold = savedData.gold;
-        live = savedData.live;
-        bags = savedData.bags
-    }
-    updateResurs();
 
-};
-loadDataFromStrangers();
+
 
 // данните от магазин , битка, мина , битка с дракон
 const magazin = document.querySelector(".magazin");
@@ -440,12 +430,17 @@ function danger() {
 }
 
 
-document.getElementById('gotoStrangers').addEventListener("click", ()=>{
+document.getElementById('gotoStrangers').addEventListener("click", () => {
 
     let data = {
         gold: gold,
         live: live,
-        
+        wepons1: wepons1,
+        wepons2: wepons2,
+        victory: victory,
+        counter: counter,
+        diamonds: diamonds,
+        counterFight: counterFight
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 })

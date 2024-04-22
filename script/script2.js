@@ -63,11 +63,21 @@ function resset() {
     entrybuttno2.disabled = false;
 }
 //извиква ресурсите от странноприемницата
-function loadDataFromStrangers(){
-    let savedData = JSON.parse(localStorage.getItem('strangers'));
+function loadDataFromStrangers() {
+    if (localStorage.getItem('strangers')) {
+        // Ако има, възстановяваме променливите от Local Storage
+        let savedData = JSON.parse(localStorage.getItem('strangers'));
         gold = savedData.gold;
         live = savedData.live;
-        updateResurs();
+        wepons1 = savedData.wepons1;
+        wepons2 = savedData.wepons2;
+        victory = savedData.victory;
+        counter = savedData.counter;
+        diamonds = savedData.diamonds;
+        counterFight = savedData.counterFight;
+    }
+
+    updateResurs();
 };
 loadDataFromStrangers();
 
@@ -197,23 +207,23 @@ function spin() {
             if (firstResult === "cheri" && secondResult === "cheri" && thirdResult === "cheri" && forthResult === "cheri") {
                 alert(`Череши ви носи печалба от ${selectedGold * 50}`);
                 gold += (selectedGold * 50);
-            
+
             } else if (firstResult === "praskova" && secondResult === "praskova" && thirdResult === "praskova" && forthResult === "praskova") {
                 alert(`Праскови ви носи печалба от ${selectedGold * 100}`);
                 gold += (selectedGold * 100);
-                
+
             } else if (firstResult === "qgoda" && secondResult === "qgoda" && thirdResult === "qgoda" && forthResult === "qgoda") {
                 alert(`Ягоди ви носи печалба от ${selectedGold * 150}`);
                 gold += (selectedGold * 150);
-                
+
             } else if (firstResult === "banana" && secondResult === "banana" && thirdResult === "banana" && forthResult === "banana") {
                 alert(`Банани ви носи печалба от ${selectedGold * 200}`);
                 gold += (selectedGold * 200);
-                
+
             } else if (firstResult === secondResult && thirdResult === forthResult) {
                 alert(`Два чифта ви носи печалба от ${selectedGold * 5}`);
                 gold += (selectedGold * 5);
-                
+
             }
             updateResurs();
         }, 2500);
