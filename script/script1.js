@@ -11,6 +11,19 @@ let dragonLive = 400;
 var diamonds = 0;
 let counterFight = 0;
 
+function loadDataFromStrangers() {
+    if (localStorage.getItem('dataFromStrangers')) {
+        // Ако има, възстановяваме променливите от Local Storage
+        let savedData = JSON.parse(localStorage.getItem('dataFromStrangers'));
+        gold = savedData.gold;
+        live = savedData.live;
+        bags = savedData.bags
+    }
+    updateResurs();
+
+};
+loadDataFromStrangers();
+
 // данните от магазин , битка, мина , битка с дракон
 const magazin = document.querySelector(".magazin");
 const mine = document.querySelector(".mine");
@@ -419,7 +432,7 @@ function danger() {
     const danger = document.getElementById("live");
     if (live <= 20) {
         danger.style.color = "red"
-     
+
     } else {
         danger.style.color = ""
     }

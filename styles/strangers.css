@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../pics/strangers.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: aqua;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(102, 102, 101, 0.744);
+    z-index: -1;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.go-to-bar {
+    height: 200px;
+    width: 100%;
+    border-radius: 10%;
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 6px 5px lightgray;
+    cursor: pointer;
+}
+
+.go-to-bar:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+.go-to-magic {
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 6px 5px lightgray;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.go-to-magic:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+
+.go-to-rotativ {
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 6px 5px lightgray;
+    height: 200px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.go-to-rotativ:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+.go-to-cheet {
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 6px 5px lightgray;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.go-to-cheet:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+@media screen and (max-width: 600px) {
+   
+    .container {
+        display: grid;
+        grid-template-columns: 60%;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .go-to-cheet,
+    .go-to-rotativ,
+    .go-to-magic,
+    .go-to-bar {
+        border: 1px solid black;
+        box-shadow: inset 1px 1px 6px 1px lightgray;
+        border-radius: 10%;
+        height: 100px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: medium;
+        font-family: 'Courier New', Courier, monospace;
+        color: azure;
+
+    }
+
+}
+
+.go-back-button {
+    background-color: rgba(113, 167, 167, 0.596);
+    cursor: pointer;
+    font-size: large;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+a {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.curent-time {
+    color: beige;
+    text-align: center;
+}
+
+.shown-gold,
+.shown-live {
+    margin-left: 3%;
+    font-size: large;
+    font-style: italic;
+    color: rgb(186, 249, 149);
+
+}

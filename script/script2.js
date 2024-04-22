@@ -44,6 +44,7 @@ function saveData() {
 //функция за ресет на играта
 function resset() {
     localStorage.removeItem('savedData');
+    localStorage.removeItem('dataFromStrangers');
     gold = 0;
     live = 50;
     wepons1 = "";
@@ -120,7 +121,7 @@ function time() {
     } else {
         curSeconds = seconds;
     }
-    document.querySelector(".hour").textContent = `The curent time is: ${curHour}:${curMinute}:${curSeconds} h`
+    document.querySelector(".hour").textContent = `The time is: ${curHour}:${curMinute}:${curSeconds} h`
 };
 setInterval(time, 1000);
 
