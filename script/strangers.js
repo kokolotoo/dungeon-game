@@ -1,29 +1,30 @@
-let gold;
-let live;
+var gold = 0;
+var live = 0;
 let bags;
 
 //зареждане на ресурси от index.html
 function loadData() {
-    if (localStorage.getItem('savedData')) {
+    if (localStorage.getItem('strangers')) {
         // Ако има, възстановяваме променливите от Local Storage
-        let savedData = JSON.parse(localStorage.getItem('savedData'));
+        let savedData = JSON.parse(localStorage.getItem('strangers'));
         gold = savedData.gold;
         live = savedData.live;
         
     }
-
+    document.getElementById("pokaji-zlato").textContent = gold;
+    document.getElementById("pokaji-jivot").textContent = live;
 }
 loadData();
 
 //запазване на ресурсите когато се отива към index.html
 function saveData() {
 
-    let dataFromStrangers = {
+    let data = {
         gold: gold,
         live: live,
-        bags: bags
+        
     };
-    localStorage.setItem('dataFromStrangers', JSON.stringify(dataFromStrangers));
+    localStorage.setItem('strangers', JSON.stringify(data));
 
 }
 

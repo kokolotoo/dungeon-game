@@ -438,3 +438,14 @@ function danger() {
     }
 
 }
+
+
+document.getElementById('gotoStrangers').addEventListener("click", ()=>{
+
+    let data = {
+        gold: gold,
+        live: live,
+        
+    };
+    localStorage.setItem('strangers', JSON.stringify(data));
+})

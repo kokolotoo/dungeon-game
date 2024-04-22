@@ -44,7 +44,7 @@ function saveData() {
 //функция за ресет на играта
 function resset() {
     localStorage.removeItem('savedData');
-    localStorage.removeItem('dataFromStrangers');
+    localStorage.removeItem('strangers');
     gold = 0;
     live = 50;
     wepons1 = "";
@@ -62,6 +62,14 @@ function resset() {
     let entrybuttno2 = document.getElementById("button2");
     entrybuttno2.disabled = false;
 }
+//извиква ресурсите от странноприемницата
+function loadDataFromStrangers(){
+    let savedData = JSON.parse(localStorage.getItem('strangers'));
+        gold = savedData.gold;
+        live = savedData.live;
+        updateResurs();
+};
+loadDataFromStrangers();
 
 //Автоматична функция
 let otherButtons = document.querySelectorAll('button:not(#autoButton)'); // Избираме всички бутони, освен autoButton
