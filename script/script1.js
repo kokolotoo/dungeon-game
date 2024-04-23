@@ -315,7 +315,7 @@ document.querySelector(".combat").addEventListener("click", function () {
 
 //Вход в Битка с дракона
 document.getElementById('button4').addEventListener("click", function () {
-    cardVisibility();
+    
     selectedGold = 0
     dragonLive = 400;
     if (counter > 0 && counter <= 2) {
@@ -488,6 +488,7 @@ function saveData() {
     }
 
 }
+
 //функция за ресет на играта
 function resset() {
     localStorage.removeItem('savedData');
@@ -509,6 +510,7 @@ function resset() {
     let entrybuttno2 = document.getElementById("button2");
     entrybuttno2.disabled = false;
 }
+
 //извиква ресурсите от странноприемницата
 function loadDataFromStrangers() {
     if (localStorage.getItem('strangers')) {
