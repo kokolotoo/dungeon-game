@@ -21,7 +21,7 @@ const fight = document.querySelector(".fight");
 const killDragon = document.querySelector(".kill-dragon");
 const winPic = document.querySelector(".win-pic");
 const uvod = document.querySelector(".uvod");
-const game = document.getElementById("container");
+
 
 //ресурсите
 function updateResurs() {
@@ -38,7 +38,7 @@ function updateResurs() {
 updateResurs();
 
 //видимост на събитията
-function styleDisplay(winPicVisible, magazinVisible, mineVisible, fightVisible, killDragonVisible, uvodVisible, gameVisible) {
+function styleDisplay(winPicVisible, magazinVisible, mineVisible, fightVisible, killDragonVisible, uvodVisible) {
 
     winPic.style.display = winPicVisible ? "block" : "none";
     magazin.style.display = magazinVisible ? "block" : "none";
@@ -46,14 +46,14 @@ function styleDisplay(winPicVisible, magazinVisible, mineVisible, fightVisible, 
     fight.style.display = fightVisible ? "block" : "none";
     killDragon.style.display = killDragonVisible ? "block" : "none";
     uvod.style.display = uvodVisible ? 'block' : "none";
-    game.style.visibility = gameVisible ? "visible" : "hidden";
+   
 }
 
 
 
 //функция за  вход в магазина
 document.getElementById('button1').addEventListener("click", function () {
-    cardVisibility();
+   
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -121,7 +121,7 @@ document.getElementById('by-wepon').addEventListener("click", function () {
 
 // функция за вход в  мината
 document.getElementById('button2').addEventListener("click", function () {
-    cardVisibility();
+   
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -154,7 +154,7 @@ function deep() {
 
 //функция за вход в битка
 document.getElementById('button3').addEventListener("click", function () {
-    cardVisibility();
+    
     selectedGold = 0;
     let entryButton1 = document.getElementById("button1");
     entryButton1.disabled = true;
@@ -444,3 +444,148 @@ document.getElementById('gotoStrangers').addEventListener("click", () => {
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 })
+
+//променлива за изгран залог
+let selectedGold = 0;
+
+// Проверяваме дали има запазени данни в Local Storage
+function loadData() {
+    if (localStorage.getItem('savedData')) {
+        // Ако има, възстановяваме променливите от Local Storage
+        let savedData = JSON.parse(localStorage.getItem('savedData'));
+        gold = savedData.gold;
+        live = savedData.live;
+        wepons1 = savedData.wepons1;
+        wepons2 = savedData.wepons2;
+        victory = savedData.victory;
+        beastWeapon = savedData.beastWeapon;
+        beastLive = savedData.beastLive;
+        counter = savedData.counter;
+        dragonLive = savedData.dragonLive;
+        diamonds = savedData.diamonds;
+    }
+    updateResurs();
+}
+
+
+// Функция за запазване на променливите в Local Storage
+function saveData() {
+    if (fight.style.display === 'block' || killDragon.style.display === "block") {
+        alert('Не можете да създадете запис когато сте влязли в битка!')
+    } else {
+        let data = {
+            gold: gold,
+            live: live,
+            wepons1: wepons1,
+            wepons2: wepons2,
+            victory: victory,
+            counter: counter,
+            dragonLive: dragonLive,
+            diamonds: diamonds
+        };
+        localStorage.setItem('savedData', JSON.stringify(data));
+        alert("Играта беше запаметена");
+    }
+
+}
+//функция за ресет на играта
+function resset() {
+    localStorage.removeItem('savedData');
+    localStorage.removeItem('strangers');
+    gold = 0;
+    live = 50;
+    wepons1 = "";
+    wepons2 = "";
+    victory = 0;
+    beastWeapon = '';
+    beastLive = 0;
+    counter = 0;
+    dragonLive = 400;
+    diamonds = 0;
+    updateResurs()
+    styleDisplay(false, false, false, false, false, true, false);
+    let entryButton1 = document.getElementById("button1");
+    entryButton1.disabled = false;
+    let entrybuttno2 = document.getElementById("button2");
+    entrybuttno2.disabled = false;
+}
+//извиква ресурсите от странноприемницата
+function loadDataFromStrangers() {
+    if (localStorage.getItem('strangers')) {
+        // Ако има, възстановяваме променливите от Local Storage
+        let savedData = JSON.parse(localStorage.getItem('strangers'));
+        gold = savedData.gold;
+        live = savedData.live;
+        wepons1 = savedData.wepons1;
+        wepons2 = savedData.wepons2;
+        victory = savedData.victory;
+        counter = savedData.counter;
+        diamonds = savedData.diamonds;
+        counterFight = savedData.counterFight;
+    }
+
+    updateResurs();
+};
+loadDataFromStrangers();
+
+//Автоматична функция
+let otherButtons = document.querySelectorAll('button:not(#autoButton)'); // Избираме всички бутони, освен autoButton
+let intervalId;
+function auto(input, number) {
+
+    if (intervalId) {
+        // Ако вече имаме интервал, значи е стартирано автоматичното изпълнение
+        clearInterval(intervalId); // Спираме интервала
+        intervalId = null; // Нулираме променливата
+        autoButton.textContent = 'Автоматично копаене'; // Променяме текста на бутона
+        otherButtons.forEach(function (button) {
+            button.disabled = false;
+        });
+    } else {
+        let answer = confirm('Автоматично копаене , може да изчерпи целия Ви живот!! Сигурни ли сте ???')
+        if (answer) {
+            // Ако нямаме интервал, значи трябва да стартираме автоматичното изпълнение
+            intervalId = setInterval(input, number); // Стартираме интервал с 1 секунда
+            autoButton.textContent = 'Спри автоматичното копаене'; // Променяме текста на бутона
+            otherButtons.forEach(function (button) {
+                button.disabled = true;
+            });
+        };
+
+    };
+
+}
+
+//Автоматичен бутон
+let autoButton = document.getElementById('autoButton');
+autoButton.addEventListener('click', function () {
+
+    auto(deep, 500);
+});
+
+//функция за текущото време
+function time() {
+    let curHour;
+    let curMinute;
+    let curSeconds;
+    let hours = new Date().getHours();
+    let minutes = new Date().getMinutes();
+    let seconds = new Date().getSeconds();
+    if (hours < 10) {
+        curHour = `0${hours}`
+    } else {
+        curHour = hours
+    };
+    if (minutes < 10) {
+        curMinute = `0${minutes}`
+    } else {
+        curMinute = minutes
+    }
+    if (seconds < 10) {
+        curSeconds = `0${seconds}`
+    } else {
+        curSeconds = seconds;
+    }
+    document.querySelector(".hour").textContent = `The time is: ${curHour}:${curMinute}:${curSeconds} h`
+};
+setInterval(time, 1000);

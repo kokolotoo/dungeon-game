@@ -354,3 +354,7 @@ p {
     padding-bottom: 2px;
 
 }
+a{
+    text-decoration: none;
+    color: aliceblue;
+}

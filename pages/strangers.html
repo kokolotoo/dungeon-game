@@ -10,35 +10,87 @@
 
 
 <body>
-    <button class="go-back-button" id="back-button"><a href="../index.html" rel="noopener noreferrer">Exit from pub</a></button>
-    <span class="shown-gold">Злато : <span id="pokaji-zlato"></span></span>
+    <button class="go-back-button" id="back-button"><a href="../index.html" rel="noopener noreferrer">Exit from
+            pub</a></button>
+    <br><span class="shown-gold">Злато : <span id="pokaji-zlato"></span></span>
     <span class="shown-live">Живот : <span id="pokaji-jivot"></span></span>
     <p id="time" class="curent-time">00:00</p>
-    <button id="up-button">up +1</button>
 
-    <div class="container">
-        <div class="go-to-bar">
-            <h1>Speek to pub peaple</h1>
+
+    <div class="general-for-choise">
+        <div class="container-for-choise">
+            <div class="go-to-bar">
+                <h1>Speek to pub peaple</h1>
+            </div>
+
+            <div class="go-to-magic">
+                <h1>Speek to the witch</h1>
+            </div>
+
+            <div class="go-to-rotativ" id="play-game">
+                <h1>Play gambling game</h1>
+            </div>
+
+            <div class="go-to-cheet">
+                <h1>Speek to a cheater </h1>
+            </div>
+
         </div>
-
-        <div class="go-to-magic">
-            <h1>Speek to the witch</h1>
-        </div>
-
-        <div class="go-to-rotativ">
-            <h1>Play gambling game</h1>
-        </div>
-
-        <div class="go-to-cheet">
-            <h1>Speek to a cheater </h1>
-        </div>
-
     </div>
 
 
+    <div class="container-for-game">
+        <div class="card-container">
+
+            <div class="first">
+                <img src="../pics-game/karti.jfif" alt="" width="100%" class="karti1">
+                <img src="../pics-game/cherry.jfif" alt="cherry" class="chery-pic1" width="100%">
+                <img src="../pics-game/praskova1.jfif" alt="peech" class="praskova-pic1" width="100%">
+                <img src="../pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic1" width="104%">
+                <img src="../pics-game/banana.png" alt="qgoda" class="banana-pic1" width="90%">
+            </div>
+
+            <div class="second">
+                <img src="../pics-game/karti.jfif" alt="" width="100%" class="karti2">
+                <img src="../pics-game/cherry.jfif" alt="cherry" class="chery-pic2" width="100%">
+                <img src="../pics-game/praskova1.jfif" alt="peech" class="praskova-pic2" width="100%">
+                <img src="../pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic2" width="104%">
+                <img src="../pics-game/banana.png" alt="qgoda" class="banana-pic2" width="90%">
+            </div>
+
+            <div class="third">
+                <img src="../pics-game/karti.jfif" alt="" width="100%" class="karti3">
+                <img src="../pics-game/cherry.jfif" alt="cherry" class="chery-pic3" width="100%">
+                <img src="../pics-game/praskova1.jfif" alt="peech" class="praskova-pic3" width="100%">
+                <img src="../pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic3" width="104%">
+                <img src="../pics-game/banana.png" alt="qgoda" class="banana-pic3" width="90%">
+            </div>
+
+            <div class="forth">
+                <img src="../pics-game/karti.jfif" alt="" width="100%" class="karti4">
+                <img src="../pics-game/cherry.jfif" alt="cherry" class="chery-pic4" width="100%">
+                <img src="../pics-game/praskova1.jfif" alt="peech" class="praskova-pic4" width="100%">
+                <img src="../pics-game/qgoda.jfif" alt="qgoda" class="qgoda-pic4" width="104%">
+                <img src="../pics-game/banana.png" alt="qgoda" class="banana-pic4" width="90%">
+            </div>
+
+
+        </div>
+
+
+        <p class="izbor-zalog">Избери залог в злато: <input type="number" class="zalog" placeholder="избери" id="zalog">
+        </p>
+
+        <button class="confirm-button" id="confirm-button">Потвърди залог</button>
+        
+            <br> <button id="spin-button" onclick="spin()" class="spinButton">Spin</button>
+            <button class="get-up-button" id="stop-play-button">Stop play</button>
+        
+    </div>
+
     <script src="../script/strangers.js"></script>
-    
-  
+
+
 
 
 </body>

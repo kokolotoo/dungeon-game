@@ -20,7 +20,7 @@ body::after {
     z-index: -1;
 }
 
-.container {
+.container-for-choise {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -29,6 +29,8 @@ body::after {
     column-gap: 10px;
     row-gap: 10px;
 }
+
+
 
 .go-to-bar {
     height: 200px;
@@ -83,14 +85,14 @@ body::after {
 }
 
 @media screen and (max-width: 600px) {
-   
+
     .container {
         display: grid;
         grid-template-columns: 60%;
         width: 80%;
         align-items: center;
         justify-content: center;
-        
+
     }
 
     .go-to-cheet,
@@ -110,6 +112,16 @@ body::after {
         color: azure;
 
     }
+
+    .button-game{
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+   
+   
 
 }
 
@@ -142,4 +154,160 @@ h1 {
     font-style: italic;
     color: rgb(186, 249, 149);
 
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.karti1,
+.karti2,
+.karti3,
+.karti4,
+.chery-pic1,
+.chery-pic2,
+.chery-pic3,
+.chery-pic4,
+.praskova-pic1,
+.praskova-pic2,
+.praskova-pic3,
+.praskova-pic4,
+.qgoda-pic1,
+.qgoda-pic2,
+.qgoda-pic3,
+.qgoda-pic4,
+.banana-pic1,
+.banana-pic2,
+.banana-pic3,
+.banana-pic4 {
+    display: none;
+    border-radius: 15%;
+    opacity: 70%;
+
+}
+
+.first,
+.second,
+.third,
+.forth {
+    width: 10%;
+    height: 10%;
+}
+
+#spin-button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 35%;
+    width: 10%;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-style: italic;
+    background-color: rgba(165, 42, 42, 0.74);
+    color: blanchedalmond;
+}
+
+
+.izbor-zalog {
+    margin-left: 20%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+}
+
+.zalog {
+    margin-top: 1%;
+    background-color: transparent;
+    color: aqua;
+    width: 13%;
+    text-align: center;
+
+}
+
+.confirm-button {
+
+    background-color: rgba(23, 23, 13, 0.699);
+    color: rgb(197, 209, 167);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+}
+
+.container-for-game {
+    display: none;
+}
+
+.get-up-button {
+    background-color: rgba(0, 128, 0, 0.651);
+    color: antiquewhite;
+    margin-left: 10%;
+    width: 6%;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+@media screen and (max-width: 600px) {
+    .get-up-button {
+       display: block;
+       width: auto;
+       margin-left: 40%;
+       margin-top: 20px;
+    }
+
+    #spin-button {
+        display: block;
+       width: 30%;
+       margin-top: 10px;
+    }
+
+    .confirm-button {
+
+        background-color: rgba(0, 60, 255, 0.68);
+        margin-left: 35%;
+    
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 10px;
+        margin-top: 1%;
+        
+    }
+
+    .karti1,
+.karti2,
+.karti3,
+.karti4,
+.chery-pic1,
+.chery-pic2,
+.chery-pic3,
+.chery-pic4,
+.praskova-pic1,
+.praskova-pic2,
+.praskova-pic3,
+.praskova-pic4,
+.qgoda-pic1,
+.qgoda-pic2,
+.qgoda-pic3,
+.qgoda-pic4,
+.banana-pic1,
+.banana-pic2,
+.banana-pic3,
+.banana-pic4 {
+   width: 600%;
+   margin-bottom: 10%;
+   }
+
+   .izbor-zalog{
+    margin-top: 10%;
+   }
 }
