@@ -46,14 +46,14 @@ function styleDisplay(winPicVisible, magazinVisible, mineVisible, fightVisible, 
     fight.style.display = fightVisible ? "block" : "none";
     killDragon.style.display = killDragonVisible ? "block" : "none";
     uvod.style.display = uvodVisible ? 'block' : "none";
-   
+
 }
 
 
 
 //функция за  вход в магазина
 document.getElementById('button1').addEventListener("click", function () {
-   
+
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -121,7 +121,7 @@ document.getElementById('by-wepon').addEventListener("click", function () {
 
 // функция за вход в  мината
 document.getElementById('button2').addEventListener("click", function () {
-   
+
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -154,7 +154,7 @@ function deep() {
 
 //функция за вход в битка
 document.getElementById('button3').addEventListener("click", function () {
-    
+
     selectedGold = 0;
     let entryButton1 = document.getElementById("button1");
     entryButton1.disabled = true;
@@ -315,7 +315,6 @@ document.querySelector(".combat").addEventListener("click", function () {
 
 //Вход в Битка с дракона
 document.getElementById('button4').addEventListener("click", function () {
-    
     selectedGold = 0
     dragonLive = 400;
     if (counter > 0 && counter <= 2) {
