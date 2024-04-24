@@ -153,7 +153,8 @@ function deep() {
 
 //функция за вход в битка
 document.getElementById('button3').addEventListener("click", function () {
-
+    let warning = document.getElementById("warning");
+    warning.textContent = "  Ако избягаш , губиш половината си злато при бягството и едно оръжие !"
     selectedGold = 0;
     let entryButton1 = document.getElementById("button1");
     entryButton1.disabled = true;
@@ -249,6 +250,9 @@ document.querySelector(".combat").addEventListener("click", function () {
             document.body.innerHTML = '<h1 style="text-align: center;">GAME OVER</h1>'
         } else if (live <= 100) {
             document.querySelector(".result").innerHTML = "!!! ОПАСНОСТ ОТ ЗАГУБА !!!";
+            let warning = document.getElementById("warning");
+            warning.innerHTML = "Използвай предмет от раницата или избягай!"
+            warning.style.color = "red";
         };
 
     } else if (live >= beastLive) {
@@ -382,12 +386,14 @@ function combatDragon() {
 function victoryAgenstBeast() {
     if (counterFight < 5) {
         alert("Бърза победа - печелиш 1 диамант");
-        counterFight = 0;
         bags.push("diamond");
         inventory(bags)
-    } else {
-        counterFight = 0;
+    } else if (counterFight >= 30) {
+        alert("След края на трудната битка намираш изгубения от звяра нож");
+        bags.push("knife");
+        inventory(bags);
     }
+    counterFight = 0;
     fight.style.display = "none";
     winPic.style.display = "block"
     victory++;
@@ -409,6 +415,7 @@ function victoryAgenstBeast() {
         wepons1 = "";
         wepons2 = "";
     }
+    beastLive = 0;
     updateResurs();
 
 }
@@ -610,18 +617,53 @@ function inventory(itemsCount) {
         newitem.innerHTML = `${item} : ${counts[item]} бр.<button onclick = 'deleteTodo(${JSON.stringify(item)})'>Use</button> `
         list.appendChild(newitem);
     }
-}
-inventory(bags);
+};
+
 
 //функция за итриване на предмет от раницата
 function deleteTodo(item) {
+    let mesage = '';
+    switch (item) {
+        case "diamond":
+            mesage = `Диаманд увеличава златото с 1000! Ще използвате ли ${item} ?`;
+            break;
+        case "liveEleksir":
+            mesage = `Елексира увеличава живота с 300! Ще използвате ли ${item} ?`;
+            break;
+        case "knife":
+            if (beastLive <= 0) {
+                alert("Не може да използваш този предмет ако не си в битка");
+                return;
+            }
+            mesage = `Ножът отнема 100 живот на звяра! Ще използвате ли ${item} ?`;
+            break;
+        default:
+            mesage = `${item} е процес на разработка! !! Не използвай !!`;
+            break;
+    };
 
-    if (confirm(`Искате ли да използвате ${item}`)) {
+    if (confirm(`${mesage}`)) {
         let index = bags.indexOf(item);
         if (index !== -1) {
             bags.splice(index, 1);
-        }
+        };
 
+        switch (item) {
+            case "diamond":
+                gold += 1000;
+                break;
+            case "liveEleksir":
+                live += 300;
+                break;
+            case "knife":
+                beastLive -= 100;
+                if (beastLive < 0) {
+                    victoryAgenstBeast();
+                }
+
+                break;
+        };
+        updateResurs();
         inventory(bags);
     }
 };

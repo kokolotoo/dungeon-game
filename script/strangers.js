@@ -8,6 +8,7 @@ let counter;
 let diamonds;
 let counterFight;
 let selectedGold = 0;
+let beastLive = 0;
 
 
 //функция за показване на ресурсите
@@ -35,6 +36,7 @@ function loadData() {
         bags = savedData.bags
     }
     updateResurs();
+    inventory(bags);
 }
 loadData();
 
@@ -84,7 +86,7 @@ function time() {
 setInterval(time, 1000);
 
 
-
+//запазва локално данните когато отива в index.html
 document.getElementById("back-button").addEventListener("click", () => {
     saveData();
 })
@@ -92,9 +94,9 @@ document.getElementById("back-button").addEventListener("click", () => {
 
 
 //видимост на избор менюто
-function displayVisibility(generalForChoiseVisible){
-  let  generalForChoise = document.querySelector(".general-for-choise")
-  generalForChoise.style.display = generalForChoiseVisible? "block" : "none";
+function displayVisibility(generalForChoiseVisible) {
+    let generalForChoise = document.querySelector(".general-for-choise")
+    generalForChoise.style.display = generalForChoiseVisible ? "block" : "none";
 
 }
 
@@ -291,9 +293,9 @@ function cardVisibility() {
 
 //Вход в странноприемница
 document.getElementById("play-game").addEventListener("click", function () {
-   
-   displayVisibility(false);
-   cardVisibility();
+
+    displayVisibility(false);
+    cardVisibility();
 });
 
 //потвърждаване на избран залог
@@ -318,35 +320,65 @@ document.getElementById("stop-play-button").addEventListener("click", () => {
 
 //функция за показване на предметите в раницата
 function inventory(itemsCount) {
-  const list = document.getElementById("dropdown");
-  list.textContent = '';
-  let counts = [];
+    const list = document.getElementById("dropdown");
+    list.textContent = '';
+    let counts = [];
 
-  for (let item of itemsCount) {
-    if (counts[item]) {
-      counts[item]++;
-    } else {
-      counts[item] = 1;
+    for (let item of itemsCount) {
+        if (counts[item]) {
+            counts[item]++;
+        } else {
+            counts[item] = 1;
+        }
     }
-  }
 
-  for (let item in counts) {
-    let newitem = document.createElement('p');
-    newitem.innerHTML = `${item} : ${counts[item]} бр.<button onclick = 'deleteTodo(${JSON.stringify(item)})'>Use</button> `
-    list.appendChild(newitem);
-  }
+    for (let item in counts) {
+        let newitem = document.createElement('p');
+        newitem.innerHTML = `${item} : ${counts[item]} бр.<button onclick = 'deleteTodo(${JSON.stringify(item)})'>Use</button> `
+        list.appendChild(newitem);
+    }
 }
-inventory(bags);
+
 
 //функция за итриване на предмет от раницата
 function deleteTodo(item) {
+    let mesage = '';
+    switch (item) {
+        case "diamond":
+            mesage = `Диаманд увеличава златото с 1000! Ще използвате ли ${item} ?`;
+            break;
+        case "liveEleksir":
+            mesage = `Елексира увеличава живота с 300! Ще използвате ли ${item} ?`;
+            break;
+        case "knife":
+            if (beastLive <= 0) {
+                alert("Не може да използваш този предмет ако не си в битка");
+                return;
+            }
+            mesage = `Ножът отнема 100 живот на звяра! Ще използвате ли ${item} ?`;
+            break;
+        default:
+            mesage = `${item} е процес на разработка! !! Не използвай !!`;
+            break;
+    };
 
-  if (confirm(`Искате ли да използвате ${item}`)) {
-    let index = bags.indexOf(item);
-    if (index !== -1) {
-      bags.splice(index, 1);
+    if (confirm(`${mesage}`)) {
+        let index = bags.indexOf(item);
+        if (index !== -1) {
+            bags.splice(index, 1);
+        };
+
+        switch (item) {
+            case "diamond":
+                gold += 1000;
+                break;
+            case "liveEleksir":
+                live += 300;
+                break;
+            case "knife":
+                break;
+        };
+        updateResurs();
+        inventory(bags);
     }
-    
-    inventory(bags);
-  }
 };
