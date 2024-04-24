@@ -113,15 +113,15 @@ body::after {
 
     }
 
-    .button-game{
+    .button-game {
         display: flex;
         flex-direction: column;
         row-gap: 40px;
         align-items: center;
         justify-content: center;
     }
-   
-   
+
+
 
 }
 
@@ -254,25 +254,26 @@ h1 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
 @media screen and (max-width: 600px) {
     .get-up-button {
-       display: block;
-       width: auto;
-       margin-left: 40%;
-       margin-top: 20px;
+        display: block;
+        width: auto;
+        margin-left: 40%;
+        margin-top: 20px;
     }
 
     #spin-button {
         display: block;
-       width: 30%;
-       margin-top: 10px;
+        width: 30%;
+        margin-top: 10px;
     }
 
     .confirm-button {
 
         background-color: rgba(0, 60, 255, 0.68);
         margin-left: 35%;
-    
+
     }
 
     .card-container {
@@ -280,34 +281,91 @@ h1 {
         grid-template-columns: 1fr 1fr;
         row-gap: 10px;
         margin-top: 1%;
-        
+
     }
 
     .karti1,
-.karti2,
-.karti3,
-.karti4,
-.chery-pic1,
-.chery-pic2,
-.chery-pic3,
-.chery-pic4,
-.praskova-pic1,
-.praskova-pic2,
-.praskova-pic3,
-.praskova-pic4,
-.qgoda-pic1,
-.qgoda-pic2,
-.qgoda-pic3,
-.qgoda-pic4,
-.banana-pic1,
-.banana-pic2,
-.banana-pic3,
-.banana-pic4 {
-   width: 600%;
-   margin-bottom: 10%;
-   }
+    .karti2,
+    .karti3,
+    .karti4,
+    .chery-pic1,
+    .chery-pic2,
+    .chery-pic3,
+    .chery-pic4,
+    .praskova-pic1,
+    .praskova-pic2,
+    .praskova-pic3,
+    .praskova-pic4,
+    .qgoda-pic1,
+    .qgoda-pic2,
+    .qgoda-pic3,
+    .qgoda-pic4,
+    .banana-pic1,
+    .banana-pic2,
+    .banana-pic3,
+    .banana-pic4 {
+        width: 600%;
+        margin-bottom: 10%;
+    }
 
-   .izbor-zalog{
-    margin-top: 10%;
-   }
+    .izbor-zalog {
+        margin-top: 10%;
+    }
+}
+
+.dropbtn {
+    margin-left: 40px;
+    background-color: #04AA6D;
+    color: white;
+    padding: 7%;
+    border-radius: 9%;
+    border: none;
+    font-size:16px;
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    border-radius: 10%;
+    display: none;
+    position: absolute;
+    background-color: #d7f2cc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content p {
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p:hover {
+    background-color: #5b6979;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+    .dropbtn {
+        border-radius: 40%;
+        padding: 3px;
+        margin-top: 3px;
+
+    }
+
+    .dropdown {
+        display: block;
+    }
 }

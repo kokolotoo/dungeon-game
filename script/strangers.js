@@ -9,6 +9,7 @@ let diamonds;
 let counterFight;
 let selectedGold = 0;
 
+
 //функция за показване на ресурсите
 function updateResurs() {
     document.getElementById("pokaji-zlato").textContent = gold;
@@ -31,6 +32,7 @@ function loadData() {
         counter = savedData.counter;
         diamonds = savedData.diamonds;
         counterFight = savedData.counterFight;
+        bags = savedData.bags
     }
     updateResurs();
 }
@@ -47,7 +49,8 @@ function saveData() {
         victory: victory,
         counter: counter,
         diamonds: diamonds,
-        counterFight: counterFight
+        counterFight: counterFight,
+        bags: bags
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 
@@ -307,3 +310,43 @@ document.getElementById("stop-play-button").addEventListener("click", () => {
     displayVisibility(true)
 
 })
+
+
+
+
+
+
+//функция за показване на предметите в раницата
+function inventory(itemsCount) {
+  const list = document.getElementById("dropdown");
+  list.textContent = '';
+  let counts = [];
+
+  for (let item of itemsCount) {
+    if (counts[item]) {
+      counts[item]++;
+    } else {
+      counts[item] = 1;
+    }
+  }
+
+  for (let item in counts) {
+    let newitem = document.createElement('p');
+    newitem.innerHTML = `${item} : ${counts[item]} бр.<button onclick = 'deleteTodo(${JSON.stringify(item)})'>Use</button> `
+    list.appendChild(newitem);
+  }
+}
+inventory(bags);
+
+//функция за итриване на предмет от раницата
+function deleteTodo(item) {
+
+  if (confirm(`Искате ли да използвате ${item}`)) {
+    let index = bags.indexOf(item);
+    if (index !== -1) {
+      bags.splice(index, 1);
+    }
+    
+    inventory(bags);
+  }
+};

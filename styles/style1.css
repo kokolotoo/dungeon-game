@@ -358,3 +358,43 @@ a{
     text-decoration: none;
     color: aliceblue;
 }
+
+
+.dropbtn {
+    margin-left: 40px;
+  background-color: #10865b9c;
+  color: white;
+  padding: 5px;
+  border-radius: 5%;
+  border: none;
+
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+    border-radius:10% ;
+  display: none;
+  position: absolute;
+  background-color: #d7f2cc;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  font-style: italic;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content p:hover {
+    background-color: #5b6979; 
+   
+    color: aliceblue;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}

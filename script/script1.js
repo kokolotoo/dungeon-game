@@ -1,4 +1,4 @@
-
+let bags = []
 let gold = 10;
 let live = 50;
 let wepons1 = "";
@@ -8,7 +8,6 @@ let beastWepon = '';
 let beastLive = 0;
 let counter = 0;
 let dragonLive = 400;
-var diamonds = 0;
 let counterFight = 0;
 
 
@@ -25,7 +24,7 @@ const uvod = document.querySelector(".uvod");
 
 //ресурсите
 function updateResurs() {
-    document.querySelector(".diamant").textContent = diamonds
+
     document.querySelector(".gold").textContent = gold;
     document.querySelector(".victory").textContent = victory;
     document.querySelector(".live").textContent = live;
@@ -33,7 +32,7 @@ function updateResurs() {
     document.querySelector(".weapon2").textContent = wepons2;
     document.querySelector(".animal").textContent = beastLive;
     document.querySelector(".animal-wepon").textContent = beastWepon;
-
+    inventory(bags);
 };
 updateResurs();
 
@@ -188,9 +187,7 @@ function escape() {
 
     let answer = confirm("Сигурен ли си ,че искаш да избягаш? Ще изгубиш ресурси");
     if (answer) {
-        if (diamonds > 0) {
-            diamonds--;
-        }
+
         gold = Math.floor(gold /= 2);
         let loseWepon = Math.random()
         if (wepons1 === "" && wepons2 === "") {
@@ -386,8 +383,8 @@ function victoryAgenstBeast() {
     if (counterFight < 5) {
         alert("Бърза победа - печелиш 1 диамант");
         counterFight = 0;
-        diamonds++;
-
+        bags.push("diamond");
+        inventory(bags)
     } else {
         counterFight = 0;
     }
@@ -438,13 +435,13 @@ document.getElementById('gotoStrangers').addEventListener("click", () => {
         wepons2: wepons2,
         victory: victory,
         counter: counter,
-        diamonds: diamonds,
+        bags: bags,
         counterFight: counterFight
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 })
 
-//променлива за изгран залог
+//променлива за избран залог
 let selectedGold = 0;
 
 // Проверяваме дали има запазени данни в Local Storage
@@ -461,7 +458,7 @@ function loadData() {
         beastLive = savedData.beastLive;
         counter = savedData.counter;
         dragonLive = savedData.dragonLive;
-        diamonds = savedData.diamonds;
+        bags = savedData.bags
     }
     updateResurs();
 }
@@ -480,7 +477,7 @@ function saveData() {
             victory: victory,
             counter: counter,
             dragonLive: dragonLive,
-            diamonds: diamonds
+            bags: bags
         };
         localStorage.setItem('savedData', JSON.stringify(data));
         alert("Играта беше запаметена");
@@ -501,7 +498,7 @@ function resset() {
     beastLive = 0;
     counter = 0;
     dragonLive = 400;
-    diamonds = 0;
+    bags = [];
     updateResurs()
     styleDisplay(false, false, false, false, false, true, false);
     let entryButton1 = document.getElementById("button1");
@@ -521,7 +518,7 @@ function loadDataFromStrangers() {
         wepons2 = savedData.wepons2;
         victory = savedData.victory;
         counter = savedData.counter;
-        diamonds = savedData.diamonds;
+        bags = savedData.bags
         counterFight = savedData.counterFight;
     }
 
@@ -590,3 +587,41 @@ function time() {
     document.querySelector(".hour").textContent = `The time is: ${curHour}:${curMinute}:${curSeconds} h`
 };
 setInterval(time, 1000);
+
+
+
+
+//функция за показване на предметите в раницата
+function inventory(itemsCount) {
+    const list = document.getElementById("dropdown");
+    list.textContent = '';
+    let counts = [];
+
+    for (let item of itemsCount) {
+        if (counts[item]) {
+            counts[item]++;
+        } else {
+            counts[item] = 1;
+        }
+    }
+
+    for (let item in counts) {
+        let newitem = document.createElement('p');
+        newitem.innerHTML = `${item} : ${counts[item]} бр.<button onclick = 'deleteTodo(${JSON.stringify(item)})'>Use</button> `
+        list.appendChild(newitem);
+    }
+}
+inventory(bags);
+
+//функция за итриване на предмет от раницата
+function deleteTodo(item) {
+
+    if (confirm(`Искате ли да използвате ${item}`)) {
+        let index = bags.indexOf(item);
+        if (index !== -1) {
+            bags.splice(index, 1);
+        }
+
+        inventory(bags);
+    }
+};
