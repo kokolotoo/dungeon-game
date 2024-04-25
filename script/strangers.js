@@ -18,8 +18,6 @@ function updateResurs() {
 };
 
 
-
-
 //зареждане на ресурси от index.html
 function loadData() {
     if (localStorage.getItem('strangers')) {
@@ -92,14 +90,14 @@ document.getElementById("back-button").addEventListener("click", () => {
 })
 
 
-
 //видимост на избор менюто
-function displayVisibility(generalForChoiseVisible) {
+function displayVisibility(generalForChoiseVisible, menuVisible) {
     let generalForChoise = document.querySelector(".general-for-choise")
     generalForChoise.style.display = generalForChoiseVisible ? "block" : "none";
 
+    const menu = document.getElementById("food-menu");
+    menu.style.display = menuVisible ? "block" : "none";
 }
-
 
 
 //функция за играта на ролетка
@@ -132,6 +130,8 @@ let thirdResult = '';
 let forthResult = '';
 
 function spin() {
+    const selested = document.getElementById("zalog");
+    selectedGold = selested.value;
     if (selectedGold <= 0 || selectedGold === '') {
         alert("Невалиден залог!")
 
@@ -298,13 +298,6 @@ document.getElementById("play-game").addEventListener("click", function () {
     cardVisibility();
 });
 
-//потвърждаване на избран залог
-document.getElementById("confirm-button").addEventListener("click", function () {
-
-    const selested = document.getElementById("zalog");
-    selectedGold = selested.value;
-
-});
 
 //излизане от играта на ротативка
 document.getElementById("stop-play-button").addEventListener("click", () => {
@@ -312,10 +305,6 @@ document.getElementById("stop-play-button").addEventListener("click", () => {
     displayVisibility(true)
 
 })
-
-
-
-
 
 
 //функция за показване на предметите в раницата
@@ -345,7 +334,7 @@ function deleteTodo(item) {
     let mesage = '';
     switch (item) {
         case "diamond":
-            mesage = `Диаманд увеличава златото с 1000! Ще използвате ли ${item} ?`;
+            mesage = `Диаманд струва 1000 злато! Ще продадеш ли ${item} ?`;
             break;
         case "liveEleksir":
             mesage = `Елексира увеличава живота с 300! Ще използвате ли ${item} ?`;
@@ -382,3 +371,67 @@ function deleteTodo(item) {
         inventory(bags);
     }
 };
+
+
+
+//отиване за ядене  :)
+document.getElementById('go-to-eath').addEventListener('click', () => {
+    displayVisibility(false, true);
+    foodQuantity();
+
+});
+
+//количество храна 
+let soupQuantity = Math.floor(Math.random() * 10);
+let chickenQuantity = Math.floor(Math.random() * 10);
+let steakQuantity = Math.floor(Math.random() * 10);
+function foodQuantity() {
+    const soup = document.getElementById("quantity-food-soup");
+    const chicken = document.getElementById("quantity-food-chicken");
+    const steak = document.getElementById("quantity-food-steak");
+    soup.textContent = soupQuantity;
+    chicken.textContent = chickenQuantity;
+    steak.textContent = steakQuantity;
+}
+//ядене
+function eath(food, numGold, numLive) {
+    if (gold < numGold) {
+        alert('Нямате достатъчно пари! Може да обмените диаманти ако имате');
+        return;
+    };
+    switch (food) {
+        case "soup":
+            if (soupQuantity < 1) {
+                alert("Няма наличност! Опитай по-късно");
+                return;
+            }
+            soupQuantity--;
+            break;
+        case "chicken":
+            if (chickenQuantity < 1) {
+                alert("Няма наличност! Опитай по-късно");
+                return;
+            }
+            chickenQuantity--;
+            break;
+        case "steak":
+            if (steakQuantity < 1) {
+                alert("Няма наличност! Опитай по-късно");
+                return;
+            }
+            steakQuantity--;
+            break;
+        default:
+            break;
+    }
+    gold -= numGold;
+    live += numLive;
+    updateResurs();
+    foodQuantity();
+}
+
+//ставане от хранене
+document.getElementById("standUP").onclick = () => {
+    displayVisibility(true, false);
+};
+

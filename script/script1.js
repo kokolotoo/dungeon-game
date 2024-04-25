@@ -188,7 +188,7 @@ function escape() {
 
     let answer = confirm("Сигурен ли си ,че искаш да избягаш? Ще изгубиш ресурси");
     if (answer) {
-
+        counterFight = 0;
         gold = Math.floor(gold /= 2);
         let loseWepon = Math.random()
         if (wepons1 === "" && wepons2 === "") {
@@ -388,7 +388,7 @@ function victoryAgenstBeast() {
         alert("Бърза победа - печелиш 1 диамант");
         bags.push("diamond");
         inventory(bags)
-    } else if (counterFight >= 30) {
+    } else if (counterFight >= 35) {
         alert("След края на трудната битка намираш изгубения от звяра нож");
         bags.push("knife");
         inventory(bags);
@@ -625,8 +625,8 @@ function deleteTodo(item) {
     let mesage = '';
     switch (item) {
         case "diamond":
-            mesage = `Диаманд увеличава златото с 1000! Ще използвате ли ${item} ?`;
-            break;
+            alert("Може да продадеш диаманд в странноприемницата");
+            return;
         case "liveEleksir":
             mesage = `Елексира увеличава живота с 300! Ще използвате ли ${item} ?`;
             break;

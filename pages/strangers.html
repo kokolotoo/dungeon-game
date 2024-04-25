@@ -10,27 +10,36 @@
 
 
 <body>
-    <button class="go-back-button" id="back-button"><a href="../index.html" rel="noopener noreferrer">Exit from
-            pub</a></button>
+    <button class="go-back-button" id="back-button">
+        <a href="../index.html" rel="noopener noreferrer">Exit from pub</a>
+    </button>
+
     <br><span class="shown-gold">Злато : <span id="pokaji-zlato"></span></span>
+
     <span class="shown-live">Живот : <span id="pokaji-jivot"></span></span>
+
     <div class="dropdown">
         <button class="dropbtn">Раница</button>
-        <div class="dropdown-content" id="dropdown">
-         
-        </div>
-      </div>
+        <div class="dropdown-content" id="dropdown"></div>
+    </div>
     <p id="time" class="curent-time">00:00</p>
 
 
     <div class="general-for-choise">
         <div class="container-for-choise">
             <div class="go-to-bar">
-                <h1>Speek to pub peaple</h1>
+                <div class="speek">
+                    <h1>Speek to peaple</h1>
+                </div>
+
+                <div class="eath" id="go-to-eath">
+                    <h1>Eath something</h1>
+                </div>
+
             </div>
 
             <div class="go-to-magic">
-                <h1>Speek to the witch</h1>
+                <h1>Speek to a witch</h1>
             </div>
 
             <div class="go-to-rotativ" id="play-game">
@@ -87,18 +96,68 @@
         <p class="izbor-zalog">Избери залог в злато: <input type="number" class="zalog" placeholder="избери" id="zalog">
         </p>
 
-        <button class="confirm-button" id="confirm-button">Потвърди залог</button>
-        
-            <br> <button id="spin-button" onclick="spin()" class="spinButton">Spin</button>
-            <button class="get-up-button" id="stop-play-button">Stop play</button>
-        
+        <br> <button id="spin-button" onclick="spin()" class="spinButton">Spin</button>
+        <button class="get-up-button" id="stop-play-button">Stop play</button>
+
     </div>
 
+
+    <div class="food" id="food-menu">
+
+        <table style="width:100%">
+            <tr>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Live</th>
+                <th>Purchase</th>
+                <th>Cuantity</th>
+            </tr>
+            <tr>
+                <td>Chicken soup</td>
+                <td>60 gold</td>
+                <td> live + 20</td>
+                <td><button class="get-buttons" onclick="eath('soup', 60, 20)">Get</button></td>
+                <td id="quantity-food-soup"></td>
+            </tr>
+            <tr>
+                <td>Grilled chicken</td>
+                <td>120 gold</td>
+                <td>live + 40</td>
+                <td><button class="get-buttons" onclick="eath('chicken', 120, 40)">Get</button></td>
+                <td id="quantity-food-chicken"></td>
+            </tr>
+            <tr>
+                <td>Steak</td>
+                <td>150 gold</td>
+                <td> live + 50</td>
+                <td><button class="get-buttons" onclick="eath('steak', 150, 50)">Get</button></td>
+                <td id="quantity-food-steak"></td>
+            </tr>
+            <tr>
+                <td>Beer</td>
+                <td>20 gold</td>
+                <td> live + 1</td>
+                <td><button class="get-buttons" onclick="eath('empty', 20, 1)">Get</button></td>
+                <td>&infin;</td>
+            </tr>
+            <tr>
+                <td>Bread</td>
+                <td>20 gold</td>
+                <td> live + 2</td>
+                <td><button class="get-buttons" onclick="eath('empty', 20, 2)">Get</button></td>
+                <td>&infin;</td>
+            </tr>
+
+        </table>
+        <button class="standUP" id="standUP">Stand up</button>
+
+    </div>
+
+
+
+
+
     <script src="../script/strangers.js"></script>
-
-
-
-
 </body>
 
 </html>

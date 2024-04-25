@@ -35,16 +35,9 @@ body::after {
 .go-to-bar {
     height: 200px;
     width: 100%;
-    border-radius: 10%;
-    border: 1px solid black;
-    box-shadow: inset 1px 1px 6px 5px lightgray;
-    cursor: pointer;
 }
 
-.go-to-bar:hover {
-    opacity: 0.4;
-    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
-}
+
 
 .go-to-magic {
     border: 1px solid black;
@@ -110,6 +103,7 @@ body::after {
         font-size: medium;
         font-family: 'Courier New', Courier, monospace;
         color: azure;
+        padding-right: 5%;
 
     }
 
@@ -140,6 +134,7 @@ a {
 
 h1 {
     text-align: center;
+    padding-top: 15%;
 }
 
 .curent-time {
@@ -216,7 +211,7 @@ h1 {
 
 
 .izbor-zalog {
-    margin-left: 20%;
+    margin-left: 30%;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     display: inline-block;
@@ -231,15 +226,7 @@ h1 {
 
 }
 
-.confirm-button {
 
-    background-color: rgba(23, 23, 13, 0.699);
-    color: rgb(197, 209, 167);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 2px;
-    padding-bottom: 2px;
-
-}
 
 .container-for-game {
     display: none;
@@ -269,12 +256,6 @@ h1 {
         margin-top: 10px;
     }
 
-    .confirm-button {
-
-        background-color: rgba(0, 60, 255, 0.68);
-        margin-left: 35%;
-
-    }
 
     .card-container {
         display: grid;
@@ -309,7 +290,9 @@ h1 {
     }
 
     .izbor-zalog {
-        margin-top: 10%;
+        margin-right: 15%;
+        margin-top: 12%;
+        font-family: 'Courier New', Courier, monospace;
     }
 }
 
@@ -320,7 +303,7 @@ h1 {
     padding: 7%;
     border-radius: 9%;
     border: none;
-    font-size:16px;
+    font-size: 16px;
 
 }
 
@@ -356,6 +339,54 @@ h1 {
     display: block;
 }
 
+
+
+.go-to-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+
+}
+
+.speek,
+.eath {
+    width: 100%;
+    border: 2px solid rgb(228, 223, 223);
+    border-radius: 20%;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 6px 1px rgb(198, 198, 198);
+}
+
+.speek:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+.eath:hover {
+    opacity: 0.4;
+    box-shadow: 1px 1px 4px 4px rgba(211, 211, 211, 0.685);
+}
+
+table,
+th,
+td {
+    border: 1px solid rgb(208, 214, 173);
+    text-align: center;
+}
+
+.food {
+    margin-top: 10%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    justify-content: center;
+    display: none;
+
+}
+
 @media screen and (max-width: 600px) {
 
     .dropbtn {
@@ -368,4 +399,28 @@ h1 {
     .dropdown {
         display: block;
     }
+
+    .food {
+        padding: 0;
+
+    }
+
+}
+
+.standUP {
+    background-color: #04aa6d8a;
+    color: #d7f2cc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    border: 2px solid black;
+    padding-bottom: 0.2%;
+}
+
+.get-buttons {
+    background-color: brown;
+    color: #d7f2cc;
+    border-radius: 15%;
+    padding-left: 8%;
+    padding-right: 8%;
+    cursor: pointer;
 }
