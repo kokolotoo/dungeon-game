@@ -372,6 +372,9 @@ th,
 td {
     border: 1px solid rgb(208, 214, 173);
     text-align: center;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
 }
 
 .food {
@@ -403,6 +406,16 @@ td {
     .food {
         padding: 0;
 
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid rgb(208, 214, 173);
+        text-align: center;
+        font-style: italic;
+        font-family: 'Courier New', Courier, monospace;
+        font-size:14px;
     }
 
 }

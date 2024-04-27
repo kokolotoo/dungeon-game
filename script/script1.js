@@ -329,7 +329,7 @@ document.getElementById('button4').addEventListener("click", function () {
     document.querySelector(".dragonLive").textContent = dragonLive;
     updateResurs();
     if (victory >= 10) {
-        styleDisplay(false, false, false, false, true, false, false);
+        styleDisplay(false, false, false, false, true, false);
         let entryButton1 = document.getElementById("button1");
         entryButton1.disabled = true;
         let entrybuttno2 = document.getElementById("button2");
@@ -631,7 +631,7 @@ function deleteTodo(item) {
             mesage = `Елексира увеличава живота с 300! Ще използвате ли ${item} ?`;
             break;
         case "knife":
-            if (beastLive <= 0) {
+            if (beastLive <= 0 && killDragon.style.display !== "block") {
                 alert("Не може да използваш този предмет ако не си в битка");
                 return;
             }
@@ -656,11 +656,18 @@ function deleteTodo(item) {
                 live += 300;
                 break;
             case "knife":
-                beastLive -= 100;
-                if (beastLive < 0) {
-                    victoryAgenstBeast();
+                if (beastLive <= 0) {
+                    dragonLive -= 100;
+                    document.querySelector(".dragonLive").textContent = dragonLive;
+                    if (dragonLive <= 0) {
+                        document.body.innerHTML = '<h1 style="text-align: center;">!!! VICTORY !!!</h1>'
+                    }
+                } else {
+                    beastLive -= 100;
+                    if (beastLive < 0) {
+                        victoryAgenstBeast();
+                    }
                 }
-
                 break;
         };
         updateResurs();
