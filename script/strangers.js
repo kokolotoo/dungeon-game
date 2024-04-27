@@ -11,9 +11,7 @@ let selectedGold = 0;
 let beastLive = 0;
 let barTalk = 0;
 
-if (window.opener && !window.opener.closed) {
-    window.opener.close();
-}
+
 //функция за показване на ресурсите
 function updateResurs() {
     document.getElementById("pokaji-zlato").textContent = gold;
