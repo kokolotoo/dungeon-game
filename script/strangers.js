@@ -9,6 +9,7 @@ let diamonds;
 let counterFight;
 let selectedGold = 0;
 let beastLive = 0;
+let barTalk = 0;
 
 
 //функция за показване на ресурсите
@@ -87,16 +88,22 @@ setInterval(time, 1000);
 //запазва локално данните когато отива в index.html
 document.getElementById("back-button").addEventListener("click", () => {
     saveData();
+    window.open("../index.html", "_blank");
+    window.close();
 })
 
 
 //видимост на избор менюто
-function displayVisibility(generalForChoiseVisible, menuVisible) {
+function displayVisibility(generalForChoiseVisible, menuVisible, barTalkVisible) {
+    //видимост на главното меню
     let generalForChoise = document.querySelector(".general-for-choise")
     generalForChoise.style.display = generalForChoiseVisible ? "block" : "none";
-
+    //видимост на менюто за храна
     const menu = document.getElementById("food-menu");
     menu.style.display = menuVisible ? "block" : "none";
+    //видимост на разговора с бармана
+    const barTalk = document.getElementById('talk-innkeeper');
+    barTalk.style.display = barTalkVisible ? "block" : "none";
 }
 
 
@@ -435,3 +442,58 @@ document.getElementById("standUP").onclick = () => {
     displayVisibility(true, false);
 };
 
+//Отваряне на html за разговор с вещицата
+document.getElementById("speek-to-witch").onclick = () => {
+    saveData();
+    window.open("../pages/witch.html");
+    window.close();
+}
+
+
+//Отваряне на разговор с бармана
+document.getElementById("talkToBar").onclick = () => {
+    barTalk++;
+    if(barTalk > 3){
+        alert("На бармана му писна от теб ! Опитай пак по-късно !");
+        return;
+    }
+    displayVisibility(false, false, true);
+    const button = document.getElementById("bar-button1");
+    let text = '';
+    let result = Math.random();
+    if (result <= 1 / 3) {
+        text = "Барманът има много работа и не може да се занимава сега с теб. Опитай по-късно.";
+        button.style.visibility = "hidden"
+    } else if (result > 1 / 3 && result <= 2 / 3) {
+        button.style.visibility = "visible"
+        text = "Здравей страннико!. Вещицата ми дължеше пари и ми даде в замяна елексир. Да ти го продам за 2500 злато?"
+        button.textContent = "Buy liveEleksir !"
+        button.onclick = () => {
+            gold -= 2500;
+            bags.push("liveEleksir");
+            inventory(bags);
+            updateResurs();
+            displayVisibility(true, false, false);
+        }
+    } else if (result > 2 / 3) {
+        text = 'Много обичам да играя на PONG.Да се обзаложим на 3000 злато и да поиграем?';
+        button.style.visibility = "visible"
+        button.textContent = "Play game"
+        document.getElementById("bar-button1").onclick = () => {
+            if (confirm("Ако се съгласиш трябва да играеш до край. Играта се играе със стрелки на горе и надолу. Играят се 5 рунда!")) {
+                if (gold >= 3000) {
+                    saveData();
+                    window.open("../pages/game.html", "_blank");
+                    window.close();
+                } else {
+                    alert("Нямаш достатъчно злато за този облог");
+                }
+            }
+        }
+    }
+    document.getElementById("bar-text").textContent = text;
+}
+//Затваряне на разговора с Бармана
+document.getElementById('bar-button2').onclick = () => {
+    displayVisibility(true, false, false);
+}

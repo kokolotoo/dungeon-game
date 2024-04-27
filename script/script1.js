@@ -432,7 +432,7 @@ function danger() {
 
 }
 
-
+//Отиване в странноприемницата
 document.getElementById('gotoStrangers').addEventListener("click", () => {
 
     let data = {
@@ -446,6 +446,8 @@ document.getElementById('gotoStrangers').addEventListener("click", () => {
         counterFight: counterFight
     };
     localStorage.setItem('strangers', JSON.stringify(data));
+    window.open("pages/strangers.html", "_blank");
+    window.close();
 })
 
 //променлива за избран залог

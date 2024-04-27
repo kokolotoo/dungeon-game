@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background-image: url('../pics-game/backgraund-game.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+button{
+    background-color: rgba(16, 101, 140, 0.751);
+    color: azure;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    border-radius: 15%;
+    box-shadow: inset 1px 1px 5px 1px lightcyan;
+    border: none;
+}
