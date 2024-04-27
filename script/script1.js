@@ -433,32 +433,7 @@ function danger() {
 }
 
 //Отиване в странноприемницата
-document.getElementById('gotoStrangers').addEventListener("click", () => {
 
-    let data = {
-        gold: gold,
-        live: live,
-        wepons1: wepons1,
-        wepons2: wepons2,
-        victory: victory,
-        counter: counter,
-        bags: bags,
-        counterFight: counterFight
-    };
-    localStorage.setItem('strangers', JSON.stringify(data));
-    // Отваряне на новата страница
-    let newPage = window.open("pages/strangers.html");
-    // Затваряне на старата страница
-    if (newPage) {
-        newPage.onload = function() {
-            window.location.href = "about:blank";
-        };
-    } else {
-        window.location.href = "about:blank";
-    }
-});
-
-/*
 document.getElementById('gotoStrangers').addEventListener("click", () => {
 
     let data = {
@@ -475,7 +450,7 @@ document.getElementById('gotoStrangers').addEventListener("click", () => {
     window.open("pages/strangers.html");
     window.close();
 })
-*/
+
 //променлива за избран залог
 let selectedGold = 0;
 

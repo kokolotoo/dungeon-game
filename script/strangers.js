@@ -469,6 +469,10 @@ document.getElementById("talkToBar").onclick = () => {
         text = "Здравей страннико!. Вещицата ми дължеше пари и ми даде в замяна елексир. Да ти го продам за 2500 злато?"
         button.textContent = "Buy liveEleksir !"
         button.onclick = () => {
+           if (gold < 2500){
+            alert("Нямаш толкова злато");
+            return;
+           }
             gold -= 2500;
             bags.push("liveEleksir");
             inventory(bags);
