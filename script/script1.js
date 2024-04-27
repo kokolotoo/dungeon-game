@@ -447,7 +447,8 @@ document.getElementById('gotoStrangers').addEventListener("click", () => {
         counterFight: counterFight
     };
     localStorage.setItem('strangers', JSON.stringify(data));
-    
+    window.open("pages/strangers.html");
+    window.close();
 })
 
 //променлива за избран залог
