@@ -88,8 +88,8 @@ setInterval(time, 1000);
 //запазва локално данните когато отива в index.html
 document.getElementById("back-button").addEventListener("click", () => {
     saveData();
-    window.open("../index.html", "_blank");
-    window.close();
+    
+    window.location.href = "../index.html";
 })
 
 
@@ -445,8 +445,7 @@ document.getElementById("standUP").onclick = () => {
 //Отваряне на html за разговор с вещицата
 document.getElementById("speek-to-witch").onclick = () => {
     saveData();
-    window.open("../pages/witch.html");
-    window.close();
+    window.location.href = "../pages/witch.html";
 }
 
 
@@ -487,8 +486,7 @@ document.getElementById("talkToBar").onclick = () => {
             if (confirm("Ако се съгласиш трябва да играеш до край. Играта се играе със стрелки на горе и надолу. Играят се 5 рунда!")) {
                 if (gold >= 3000) {
                     saveData();
-                    window.open("../pages/game.html", "_blank");
-                    window.close();
+                    window.location.href = "../pages/game.html";
                 } else {
                     alert("Нямаш достатъчно злато за този облог");
                 }

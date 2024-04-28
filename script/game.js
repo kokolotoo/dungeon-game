@@ -142,8 +142,7 @@ var Game = {
         saveData();
 
         setTimeout(function () {
-            window.open("../pages/strangers.html", "_blank")
-            window.close();
+            window.location.href = "strangers.html";
         }, 1000)
 
     },
@@ -423,8 +422,8 @@ document.getElementById("button").onclick = () => {
     if (confirm("Ще изгубиш залога ако не довършиш играта")) {
         gold -= 3000;
         saveData();
-        window.open("../index.html", "_blank")
-        window.close();
+       
+        window.location.href = "strangers.html";
     }
 
 }

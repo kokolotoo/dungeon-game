@@ -49,8 +49,8 @@ function updateResurs() {
 //връщане в странноприемницата
 document.getElementById("go-back- button").onclick = () => {
     saveData();
-    window.open("../pages/strangers.html","_blank");
-    window.close();
+   
+    window.location.href = "../pages/strangers.html";
 }
 
 
