@@ -50,7 +50,7 @@ var DIRECTION = {
     RIGHT: 4
 };
 
-var rounds = [5, 5, 3, 3, 2];
+var rounds = [5, 4, 3, 3, 2];
 var colors = ['#1abc9c', '#2ecc71', '#3498db', '#e74c3c', '#9b59b6'];
 
 // The ball object (The cube that bounces back and forth)
@@ -78,7 +78,7 @@ var Paddle = {
             y: (this.canvas.height / 2) - 35,
             score: 0,
             move: DIRECTION.IDLE,
-            speed: 10
+            speed: 9
         };
     }
 };
@@ -114,6 +114,7 @@ var Game = {
         } else if (text === 'Game Over!') {
             gold -= 3000;
         }
+        saveData();
         // Change the canvas font size and color
         Pong.context.font = '50px Courier New';
         Pong.context.fillStyle = this.color;
@@ -139,7 +140,7 @@ var Game = {
             Pong = Object.assign({}, Game);
             Pong.initialize();
         }, 3000);
-        saveData();
+        
 
         setTimeout(function () {
             window.location.href = "strangers.html";
@@ -167,7 +168,7 @@ var Game = {
         this.context.fillStyle = '#ffffff';
 
         // Draw the 'press any key to begin' text
-        this.context.fillText('Press any key to begin',
+        this.context.fillText('Press up or down arrow to begin',
             this.canvas.width / 2,
             this.canvas.height / 2 + 15
         );

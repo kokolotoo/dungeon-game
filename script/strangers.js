@@ -354,7 +354,7 @@ function deleteTodo(item) {
             mesage = `Ножът отнема 100 живот на звяра! Ще използвате ли ${item} ?`;
             break;
         default:
-            mesage = `${item} е процес на разработка! !! Не използвай !!`;
+            mesage = `${item} е процес на разработка! !! Натисни отказ !!`;
             break;
     };
 
@@ -444,8 +444,11 @@ document.getElementById("standUP").onclick = () => {
 
 //Отваряне на html за разговор с вещицата
 document.getElementById("speek-to-witch").onclick = () => {
+   if(confirm("В света на вещиците нищо не е безплатно! Внимавай!!!")){
     saveData();
     window.location.href = "../pages/witch.html";
+   };
+    
 }
 
 

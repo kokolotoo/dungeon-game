@@ -1,20 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talk with the witch</title>
     <link rel="stylesheet" href="../styles/witch.css">
 </head>
+
 <body>
-   
+
     <canvas id="sakura"></canvas>
     <div class="btnbg">
         <button class="goBackButton" id="go-back- button">Go Back !</button>
-       
+       <fieldset class="live"><span>Живот: <span id="swounGold" class="goldText"></span> </span></fieldset>
+        <br> <br> <span>Злато: <span id="zlatotext" class="zlatoto"></span> </span>
+        <h2 id="textResult">Още с влизането в замъка на вещицата , усещаш как магията бавно те превзема ! Побързай!!
+        </h2>
+    </div>
+
+    <div class="questions">
+        <div class="welcome">
+            <p>Гостите винаги са ми добре дошли ! </p>
+            <p>Каква награда искаш от мен пътешественико?</p>
+            <button id="magicButton">Магия</button>
+            <button id="itemButton">Предмет</button>
+            <br><img src="../pics-game/witchPic2.jpeg" alt="witch2"">
+        </div>
+
+        <div class=" preparation1">
+            <p>Да притежаваш магия не е така лесно</p>
+            <p>Отговори ми правилно на въпроса и ще я получиш</p>
+            <p>Ако сгрешиш , ще взема половината ти злато</p>
+            <button onclick="answer(1)">Съгласен съм </button>
+            <button id="reject1">Отказвам се</button>
+        </div>
+
+        <div class="preparation2">
+            <p>Мога да ти помогна в борбата с дракона</p>
+            <p>Отговори ми правилно на въпроса и ще получиш награда!</p>
+            <p>Ако сгрешиш , ще взема половината ти живот!</p>
+            <button onclick="answer(2)">Съгласен съм </button>
+            <button id="reject2">Отказвам се</button>
+        </div>
+
+        <div class="question1">
+            <p>Знаят всички земни твари: не е огън тя, а пари.</p>
+            <p>Що е то ?</p>
+            <button id="answer1">! Отговори ! </button>
+        </div>
+
+        <div class="question2">
+            <p>На зелено дръвце бяла камбанка.</p>
+            <p>Що е то ?</p>
+            <button id="answer2">! Отговори ! </button>
+        </div>
+
+        <div class="question3">
+            <p>Една риза с пет ръкава.</p>
+            <p>Що е то ?</p>
+            <button id="answer3">! Отговори ! </button>
+        </div>
+
+        <div class="question4">
+            <p>От едно огнище цял свят се грее.</p>
+            <p>Що е то ?</p>
+            <button id="answer4">! Отговори ! </button>
+        </div>
+
+        <div class="question5">
+            <p>Невидимо и живее в планината, горе. Извикай името си, то ще го повтори.</p>
+            <p>Що е то ?</p>
+            <button id="answer5">! Отговори ! </button>
+        </div>
+
+
+        <div class="question6">
+            <p>Нахраниш ли го – живее, напоиш ли го – умира.</p>
+            <p>Що е то ?</p>
+            <button id="answer6">! Отговори ! </button>
+        </div>
+
+        <div class="question7">
+            <p>Рибар не е, мрежа плете.</p>
+            <p>Що е то ?</p>
+            <button id="answer7">! Отговори ! </button>
+        </div>
+
+        <div class="question8">
+            <p>Четири крака има и пак не може да ходи.</p>
+            <p>Що е то ?</p>
+            <button id="answer8">! Отговори ! </button>
+        </div>
+
+        <div class="question9">
+            <p>По полето бързо тича, зеле и моркови обича.</p>
+            <p>Що е то ?</p>
+            <button id="answer9">! Отговори ! </button>
+        </div>
+
+        <div class="question10">
+            <p>Пролет се облича, есен се съблича.</p>
+            <p>Що е то ?</p>
+            <button id="answer10">! Отговори ! </button>
+        </div>
+
     </div>
 
     <script src="../script/witch.js"></script>
+    <script src="../script/witch2.js"></script>
     <script id="sakura_point_vsh" type="x-shader/x_vertex">
         uniform mat4 uProjection;
         uniform mat4 uModelview;
@@ -107,7 +201,7 @@
             distancefade = min(1.0, exp((uFade.x - pdist) * 0.69315 / uFade.y));
         }
         </script>
-        <script id="sakura_point_fsh" type="x-shader/x_fragment">
+    <script id="sakura_point_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -179,8 +273,8 @@
             gl_FragColor = vec4(col * 0.5, alpha);
         }
         </script>
-        <!-- effects -->
-        <script id="fx_common_vsh" type="x-shader/x_vertex">
+    <!-- effects -->
+    <script id="fx_common_vsh" type="x-shader/x_vertex">
         uniform vec3 uResolution;
         attribute vec2 aPosition;
         
@@ -193,7 +287,7 @@
             screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
         }
         </script>
-        <script id="bg_fsh" type="x-shader/x_fragment">
+    <script id="bg_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -213,7 +307,7 @@
             gl_FragColor = vec4(col * 0.5, 1.0);
         }
         </script>
-        <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
+    <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -229,7 +323,7 @@
             gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
         }
         </script>
-        <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
+    <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -250,8 +344,8 @@
             gl_FragColor = col / 5.0;
         }
         </script>
-        <!-- effect fragment shader template -->
-        <script id="fx_common_fsh" type="x-shader/x_fragment">
+    <!-- effect fragment shader template -->
+    <script id="fx_common_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -266,8 +360,8 @@
             gl_FragColor = texture2D(uSrc, texCoord);
         }
         </script>
-        <!-- post processing -->
-        <script id="pp_final_vsh" type="x-shader/x_vertex">
+    <!-- post processing -->
+    <script id="pp_final_vsh" type="x-shader/x_vertex">
         uniform vec3 uResolution;
         attribute vec2 aPosition;
         varying vec2 texCoord;
@@ -278,7 +372,7 @@
             screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
         }
         </script>
-        <script id="pp_final_fsh" type="x-shader/x_fragment">
+    <script id="pp_final_fsh" type="x-shader/x_fragment">
         #ifdef GL_ES
         //precision mediump float;
         precision highp float;
@@ -301,4 +395,5 @@
         }
         </script>
 </body>
+
 </html>
