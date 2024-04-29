@@ -639,6 +639,9 @@ function deleteTodo(item) {
             }
             mesage = `Ножът отнема 100 живот на звяра! Ще използвате ли ${item} ?`;
             break;
+        case "ring":
+            alert("Може да продадеш пръстен в странноприемницата");
+            return;
         default:
             mesage = `${item} е процес на разработка! !! Натисни отказ !!`;
             break;

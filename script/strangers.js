@@ -88,7 +88,7 @@ setInterval(time, 1000);
 //запазва локално данните когато отива в index.html
 document.getElementById("back-button").addEventListener("click", () => {
     saveData();
-    
+
     window.location.href = "../index.html";
 })
 
@@ -353,6 +353,9 @@ function deleteTodo(item) {
             }
             mesage = `Ножът отнема 100 живот на звяра! Ще използвате ли ${item} ?`;
             break;
+        case "ring":
+            mesage = `Пръстен струва 3000 злато! Ще продадеш ли ${item} ?`;
+            break;
         default:
             mesage = `${item} е процес на разработка! !! Натисни отказ !!`;
             break;
@@ -372,6 +375,9 @@ function deleteTodo(item) {
                 live += 300;
                 break;
             case "knife":
+                break;
+            case "ring":
+                gold += 3000;
                 break;
         };
         updateResurs();
@@ -444,18 +450,18 @@ document.getElementById("standUP").onclick = () => {
 
 //Отваряне на html за разговор с вещицата
 document.getElementById("speek-to-witch").onclick = () => {
-   if(confirm("В света на вещиците нищо не е безплатно! Внимавай!!!")){
-    saveData();
-    window.location.href = "../pages/witch.html";
-   };
-    
+    if (confirm("В света на вещиците нищо не е безплатно! Внимавай!!!")) {
+        saveData();
+        window.location.href = "../pages/witch.html";
+    };
+
 }
 
 
 //Отваряне на разговор с бармана
 document.getElementById("talkToBar").onclick = () => {
     barTalk++;
-    if(barTalk > 3){
+    if (barTalk > 3) {
         alert("На бармана му писна от теб ! Опитай пак по-късно !");
         return;
     }
@@ -471,10 +477,10 @@ document.getElementById("talkToBar").onclick = () => {
         text = "Здравей страннико!. Вещицата ми дължеше пари и ми даде в замяна елексир. Да ти го продам за 2500 злато?"
         button.textContent = "Buy liveEleksir !"
         button.onclick = () => {
-           if (gold < 2500){
-            alert("Нямаш толкова злато");
-            return;
-           }
+            if (gold < 2500) {
+                alert("Нямаш толкова злато");
+                return;
+            }
             gold -= 2500;
             bags.push("liveEleksir");
             inventory(bags);

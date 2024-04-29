@@ -87,8 +87,11 @@ document.getElementById("reject1").onclick = () => {
     textForResult.textContent = "Още не си готов за мен! Върви си ,но не и безнаказано!"
     if (gold > 500) {
         gold -= 350;
-        saveData();
     }
+    if (victory >= 2) {
+        victory--;
+    }
+    saveData();
 }
 document.getElementById("reject2").onclick = () => {
     number++;
@@ -97,8 +100,11 @@ document.getElementById("reject2").onclick = () => {
     textForResult.textContent = "Още не си готов за мен! Върви си ,но не и безнаказано!"
     if (gold > 500) {
         gold -= 350;
-        saveData();
     }
+    if (victory >= 2) {
+        victory--;
+    }
+    saveData();
 }
 
 //функция за въпрос

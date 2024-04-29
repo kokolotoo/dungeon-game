@@ -51,6 +51,7 @@ document.getElementById("go-back- button").onclick = () => {
     if (number === 0) {
         if (confirm("Не си отговорил на въпрос и искаш да избягаш? Вещицата ще ти открадне всичкото злато!")) {
             gold = 0;
+            victory --;
             saveData();
             window.location.href = "../pages/strangers.html";
             return;
