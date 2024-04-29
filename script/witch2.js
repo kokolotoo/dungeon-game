@@ -155,7 +155,7 @@ function answer(input) {
 
 //отговор на въпрос 1
 document.getElementById('answer1').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
     if (answerResult === "коприва") {
         bags.push(award);
@@ -176,7 +176,7 @@ document.getElementById('answer1').onclick = () => {
 
 //отговор на въпрос 2
 document.getElementById('answer2').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
     if (answerResult === "кокиче") {
         bags.push(award);
@@ -197,7 +197,7 @@ document.getElementById('answer2').onclick = () => {
 
 //отговор на въпрос 3
 document.getElementById('answer3').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
     if (answerResult === "ръкавица" || answerResult === "ръкавици") {
         bags.push(award);
@@ -218,7 +218,7 @@ document.getElementById('answer3').onclick = () => {
 
 //отговор на въпрос 4
 document.getElementById('answer4').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
     if (answerResult === "слънце" || answerResult === "слънцето") {
         bags.push(award);
@@ -239,7 +239,7 @@ document.getElementById('answer4').onclick = () => {
 
 //отговор на въпрос 5
 document.getElementById('answer5').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!! ").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "ехо" || answerResult === "ехото") {
@@ -261,7 +261,7 @@ document.getElementById('answer5').onclick = () => {
 
 //отговор на въпрос 6
 document.getElementById('answer6').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "огън") {
@@ -283,7 +283,7 @@ document.getElementById('answer6').onclick = () => {
 
 //отговор на въпрос 7
 document.getElementById('answer7').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "паяк") {
@@ -305,7 +305,7 @@ document.getElementById('answer7').onclick = () => {
 
 //отговор на въпрос 8
 document.getElementById('answer8').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "стол" || answerResult === "маса") {
@@ -327,7 +327,7 @@ document.getElementById('answer8').onclick = () => {
 
 //отговор на въпрос 9
 document.getElementById('answer9').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "заек") {
@@ -349,7 +349,7 @@ document.getElementById('answer9').onclick = () => {
 
 //отговор на въпрос 10
 document.getElementById('answer10').onclick = () => {
-    const myAnswer = prompt("Какъв е твоят отговор?").trim();
+    const myAnswer = prompt("Какъв е твоят отговор? Въведи на български език!!!").trim();
     let answerResult = myAnswer.toLowerCase();
 
     if (answerResult === "дърво" || answerResult === "дървото") {

@@ -6,6 +6,11 @@ let victory;
 let counter;
 let bags;
 let counterFight;
+let newDay = 0;
+let toDay = new Date().getDate();
+let entrymagazin;
+let entrymine;
+let entryWitch;
 
 //извиква данните с ресурсите
 function loadDataFromStrangers() {
@@ -20,6 +25,10 @@ function loadDataFromStrangers() {
         counter = savedData.counter;
         bags = savedData.bags
         counterFight = savedData.counterFight;
+        newDay = savedData.newDay;
+        entrymagazin = savedData.entrymagazin;
+        entrymine = savedData.entrymine;
+        entryWitch = savedData.entryWitch;
     }
 
 
@@ -36,15 +45,14 @@ function saveData() {
         victory: victory,
         counter: counter,
         counterFight: counterFight,
-        bags: bags
+        bags: bags,
+        newDay: newDay,
+        entrymagazin: entrymagazin,
+        entrymine: entrymine,
+        entryWitch: entryWitch
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 }
-
-//Видимост на ресурсите на страницата
-function updateResurs() {
-
-};
 
 //връщане в странноприемницата
 document.getElementById("go-back- button").onclick = () => {

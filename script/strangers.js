@@ -10,7 +10,11 @@ let counterFight;
 let selectedGold = 0;
 let beastLive = 0;
 let barTalk = 0;
-
+let newDay = 0;
+let toDay = new Date().getDate();
+let entrymagazin;
+let entrymine;
+let entryWitch;
 
 //функция за показване на ресурсите
 function updateResurs() {
@@ -32,7 +36,11 @@ function loadData() {
         counter = savedData.counter;
         diamonds = savedData.diamonds;
         counterFight = savedData.counterFight;
-        bags = savedData.bags
+        bags = savedData.bags;
+        newDay = savedData.newDay;
+        entrymagazin = savedData.entrymagazin;
+        entrymine = savedData.entrymine;
+        entryWitch = savedData.entryWitch;
     }
     updateResurs();
     inventory(bags);
@@ -51,7 +59,11 @@ function saveData() {
         counter: counter,
         diamonds: diamonds,
         counterFight: counterFight,
-        bags: bags
+        bags: bags,
+        newDay: newDay,
+        entrymagazin: entrymagazin,
+        entrymine: entrymine,
+        entryWitch: entryWitch
     };
     localStorage.setItem('strangers', JSON.stringify(data));
 
@@ -450,7 +462,12 @@ document.getElementById("standUP").onclick = () => {
 
 //Отваряне на html за разговор с вещицата
 document.getElementById("speek-to-witch").onclick = () => {
+    if (entryWitch) {
+        alert("Днес вече беше при вещицата! Отиди утре!");
+        return;
+    }
     if (confirm("В света на вещиците нищо не е безплатно! Внимавай!!!")) {
+        entryWitch = true;
         saveData();
         window.location.href = "../pages/witch.html";
     };

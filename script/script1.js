@@ -9,8 +9,21 @@ let beastLive = 0;
 let counter = 0;
 let dragonLive = 400;
 let counterFight = 0;
+let newDay = 0;
+let toDay = new Date().getDate();
+let entrymagazin;
+let entrymine;
+let entryWitch;
 
+loadDataFromStrangers();
 
+if (newDay !== toDay) {
+    entrymagazin = false;
+    entrymine = false;
+    entryWitch = false;
+    newDay = toDay;
+    goToStrangers();
+}
 
 
 // данните от магазин , битка, мина , битка с дракон
@@ -52,7 +65,10 @@ function styleDisplay(winPicVisible, magazinVisible, mineVisible, fightVisible, 
 
 //функция за  вход в магазина
 document.getElementById('button1').addEventListener("click", function () {
-
+    if (entrymagazin) {
+        alert("Днес вече беше в магазина! Ела утре");
+        return;
+    }
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -62,6 +78,7 @@ document.getElementById('button1').addEventListener("click", function () {
         updateResurs();
         styleDisplay(false, true, false, false, false, false, false);
         danger();
+        entrymagazin = true;
     }
 
 });
@@ -120,7 +137,10 @@ document.getElementById('by-wepon').addEventListener("click", function () {
 
 // функция за вход в  мината
 document.getElementById('button2').addEventListener("click", function () {
-
+    if (entrymine) {
+        alert("Днес вече беше в мината! Ела да поработиш утре!");
+        return;
+    }
     selectedGold = 0;
     let hours = new Date().getHours();
     if (hours < 8 || hours > 20) {
@@ -131,7 +151,9 @@ document.getElementById('button2').addEventListener("click", function () {
         updateResurs();
         styleDisplay(false, false, true, false, false, false, false);
         document.querySelector(".dril-result").textContent = "";
+        entrymine = true;
     }
+
 });
 //функция за копаене в мината
 function deep() {
@@ -435,18 +457,7 @@ function danger() {
 //Отиване в странноприемницата
 
 document.getElementById('gotoStrangers').addEventListener("click", () => {
-
-    let data = {
-        gold: gold,
-        live: live,
-        wepons1: wepons1,
-        wepons2: wepons2,
-        victory: victory,
-        counter: counter,
-        bags: bags,
-        counterFight: counterFight
-    };
-    localStorage.setItem('strangers', JSON.stringify(data));
+    goToStrangers();
     window.location.href = "pages/strangers.html";
 })
 
@@ -467,7 +478,11 @@ function loadData() {
         beastLive = savedData.beastLive;
         counter = savedData.counter;
         dragonLive = savedData.dragonLive;
-        bags = savedData.bags
+        bags = savedData.bags;
+        newDay = savedData.newDay;
+        entrymagazin = savedData.entrymagazin;
+        entrymine = savedData.entrymine;
+        entryWitch = savedData.entryWitch;
     }
     updateResurs();
 }
@@ -486,7 +501,11 @@ function saveData() {
             victory: victory,
             counter: counter,
             dragonLive: dragonLive,
-            bags: bags
+            bags: bags,
+            newDay: newDay,
+            entrymagazin: entrymagazin,
+            entrymine: entrymine,
+            entryWitch: entryWitch
         };
         localStorage.setItem('savedData', JSON.stringify(data));
         alert("Играта беше запаметена");
@@ -529,11 +548,15 @@ function loadDataFromStrangers() {
         counter = savedData.counter;
         bags = savedData.bags
         counterFight = savedData.counterFight;
+        newDay = savedData.newDay;
+        entrymagazin = savedData.entrymagazin;
+        entrymine = savedData.entrymine;
+        entryWitch = savedData.entryWitch;
     }
 
     updateResurs();
 };
-loadDataFromStrangers();
+
 
 //Автоматична функция
 let otherButtons = document.querySelectorAll('button:not(#autoButton)'); // Избираме всички бутони, освен autoButton
@@ -678,4 +701,23 @@ function deleteTodo(item) {
         updateResurs();
         inventory(bags);
     }
+};
+
+function goToStrangers() {
+    let data = {
+        gold: gold,
+        live: live,
+        wepons1: wepons1,
+        wepons2: wepons2,
+        victory: victory,
+        counter: counter,
+        bags: bags,
+        counterFight: counterFight,
+        newDay: newDay,
+        entrymagazin: entrymagazin,
+        entrymine: entrymine,
+        entryWitch: entryWitch
+    };
+    localStorage.setItem('strangers', JSON.stringify(data));
+    
 };
