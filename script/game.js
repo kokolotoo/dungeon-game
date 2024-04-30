@@ -6,6 +6,11 @@ let victory;
 let counter;
 let bags;
 let counterFight;
+let  newDay;
+let entrymagazin;
+let entrymine;
+let  entryWitch;
+
 
 function loadDataFromStrangers() {
     if (localStorage.getItem('strangers')) {
@@ -39,7 +44,6 @@ function saveData() {
         wepons2: wepons2,
         victory: victory,
         counter: counter,
-        diamonds: diamonds,
         counterFight: counterFight,
         bags: bags,
         newDay: newDay,
@@ -48,6 +52,17 @@ function saveData() {
         entryWitch: entryWitch
     };
     localStorage.setItem('strangers', JSON.stringify(data));
+
+}
+
+
+document.getElementById("button").onclick = () => {
+    if (confirm("Ще изгубиш залога ако не довършиш играта")) {
+        gold -= 3000;
+        saveData();
+       
+        window.location.href = "strangers.html";
+    }
 
 }
 
@@ -430,12 +445,3 @@ var Game = {
 var Pong = Object.assign({}, Game);
 Pong.initialize();
 
-document.getElementById("button").onclick = () => {
-    if (confirm("Ще изгубиш залога ако не довършиш играта")) {
-        gold -= 3000;
-        saveData();
-       
-        window.location.href = "strangers.html";
-    }
-
-}
