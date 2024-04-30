@@ -19,14 +19,19 @@ function loadDataFromStrangers() {
         counter = savedData.counter;
         bags = savedData.bags
         counterFight = savedData.counterFight;
+        newDay = savedData.newDay;
+        entrymagazin = savedData.entrymagazin;
+        entrymine = savedData.entrymine;
+        entryWitch = savedData.entryWitch;
     }
 
-
+   
 };
 loadDataFromStrangers();
 
 //Запазва данните с ресурсите
 function saveData() {
+
     let data = {
         gold: gold,
         live: live,
@@ -34,10 +39,16 @@ function saveData() {
         wepons2: wepons2,
         victory: victory,
         counter: counter,
+        diamonds: diamonds,
         counterFight: counterFight,
-        bags: bags
+        bags: bags,
+        newDay: newDay,
+        entrymagazin: entrymagazin,
+        entrymine: entrymine,
+        entryWitch: entryWitch
     };
     localStorage.setItem('strangers', JSON.stringify(data));
+
 }
 
 
