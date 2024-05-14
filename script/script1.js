@@ -187,8 +187,8 @@ document.getElementById('button3').addEventListener("click", function () {
     let bardak = document.querySelector(".bardak");
     bardak.disabled = true;
     styleDisplay(false, false, false, true, false, false, false);
+    dataFetch()
 
-    beastLive = Math.ceil(Math.random() * 300);
     let curentWepon = Math.random();
     if (curentWepon <= 1 / 3) {
         beastWepon = "Меч";
@@ -719,5 +719,57 @@ function goToStrangers() {
         entryWitch: entryWitch
     };
     localStorage.setItem('strangers', JSON.stringify(data));
-    
+
 };
+
+
+
+
+
+
+
+//pokemon
+
+async function dataFetch() {
+    let random = myPokemonList[Math.floor(Math.random() * 45)];
+    document.getElementById('pokemonName').textContent = random.toUpperCase();
+
+    try {
+
+        const pokemonName = document.getElementById("pokemonName").textContent.toLowerCase().trim();
+
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${random}`);
+
+        if (!response.ok) {
+            throw new Error("Could not fetch resource");
+        }
+
+        const data = await response.json();
+        let pokemonSprite = data.sprites.front_default;
+        const imgElement = document.getElementById("pokemonSprite");
+        imgElement.src = pokemonSprite;
+        imgElement.style.display = "block";
+        beastLive = data.base_experience;
+
+    }
+    catch (error) {
+
+        console.log(error);
+        dataFetch();
+    }
+    document.getElementById("pokemonName").value = ''
+    updateResurs();
+
+}
+
+
+const myPokemonList = ['Alcremie', 'alomomola', 'altaria', 'aggron',
+    'aerodactyl', 'abomasnow', 'abra', 'azelf', 'bagon', 'banette',
+    'barbaracle', 'baxcalibur', 'beartic', 'bisharp', 'bouffalant',
+    'braviary', 'buzzwole', 'capsakid', 'carracosta', 'charizard',
+    'cofagrigus', 'conkeldurr', 'darkrai', 'druddigon', 'electabuzz',
+    'electrode', 'entei', 'exploud', 'feraligatr', 'flareon', 'gastly',
+    'rattata', 'grapploct', 'haxorus', 'hypno', 'incineroar', 'jolteon',
+    'kabutops', 'koraidon', 'kyurem', 'lunala', 'machamp', 'pupitar', 'rampardos',
+    'regirock']
+

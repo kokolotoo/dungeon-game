@@ -34,9 +34,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Раница</button>
                 <div class="dropdown-content" id="dropdown">
-                 
+
                 </div>
-              </div>
+            </div>
         </div>
 
     </header>
@@ -56,11 +56,20 @@
     </div>
 
     <div class="fight">
-        <h2>Умения на звяра:</h2>
-        <p>Живот: <span class="animal"></span></p>
-        <p>Оръжие: <span class="animal-wepon"></span></p>
-        <button class="combat" id="combatButton">Начало</button>
-        <button class="run" onclick="escape()">Избягай</button>
+        <div class="fightContainer">
+            <div class="beastPic">
+                <img src="" alt="pokemon" id="pokemonSprite" style="display: none;">
+            </div>
+            <div>
+                <p>Име:
+                <h2 id="pokemonName" class="namePoke"></h2>
+                </p>
+                <p>Живот: <span class="animal"></span></p>
+                <p>Оръжие: <span class="animal-wepon"></span></p>
+                <button class="combat" id="combatButton">Начало</button>
+                <button class="run" onclick="escape()">Избягай</button>
+            </div>
+        </div>
         <hr>
         <p class="result"></p>
         <hr>
@@ -108,11 +117,11 @@
         <img src="pics/youwin.jpg" alt="win" width="20%">
     </div>
 
-  
+
 
 
     <script src="script/script1.js"></script>
-   
+
 
 </body>
 
