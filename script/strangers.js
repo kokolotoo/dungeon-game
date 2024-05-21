@@ -525,3 +525,19 @@ document.getElementById("talkToBar").onclick = () => {
 document.getElementById('bar-button2').onclick = () => {
     displayVisibility(true, false, false);
 }
+
+
+
+const openButton = document.getElementById('open_modal_button');
+const dialog = document.getElementById('myDialog');
+const closeButton = document.getElementById('closeDialog');
+// Функция за отваряне на диалоговия прозорец
+openButton.addEventListener('click', () => {
+    dialog.showModal();
+
+});
+
+// Функция за затваряне на диалоговия прозорец
+closeButton.addEventListener('click', () => {
+    dialog.close();
+});
